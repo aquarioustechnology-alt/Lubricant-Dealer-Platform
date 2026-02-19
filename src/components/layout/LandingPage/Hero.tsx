@@ -110,7 +110,7 @@ export default function Hero() {
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.4, duration: 0.8 }}
-                                        className="text-[28px] md:text-[46px] lg:text-[58px] [@media(min-width:1600px)]:text-[60px] font-medium text-white mb-6 leading-[1.15] tracking-[-0.015em]"
+                                        className="text-[28px] md:text-[46px] lg:text-[58px] [@media(min-width:1600px)]:text-[60px] font-medium text-white mb-4 leading-[1.15] tracking-[-0.015em]"
                                     >
                                         {slides[currentSlide].title}
                                     </motion.h1>
@@ -120,7 +120,7 @@ export default function Hero() {
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.6, duration: 0.8 }}
-                                        className="text-sm md:text-base text-white/90 mb-8 leading-relaxed font-normal max-w-3xl"
+                                        className="text-sm md:text-base text-white/90 mb-6 leading-relaxed font-normal max-w-3xl"
                                     >
                                         {slides[currentSlide].subtitle}
                                     </motion.p>
