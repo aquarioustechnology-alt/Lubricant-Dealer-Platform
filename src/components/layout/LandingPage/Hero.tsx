@@ -84,67 +84,90 @@ export default function Hero() {
                     {/* Content Container - Matching Header container */}
                     <div className="relative h-full flex items-center pt-16 lg:pt-20">
                         <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full">
-                            <div className="max-w-4xl">
-                                {/* Trust Line */}
+                            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
+                                <div className="max-w-4xl">
+                                    {/* Trust Line */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.2, duration: 0.8 }}
+                                        className="flex flex-wrap gap-4 mb-6"
+                                    >
+                                        {[
+                                            "Verified onboarding",
+                                            "Role-based visibility",
+                                            "Inventory and action logs"
+                                        ].map((text, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-white/95">
+                                                <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
+                                                <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em]">{text}</span>
+                                            </div>
+                                        ))}
+                                    </motion.div>
+
+                                    {/* Main Heading */}
+                                    <motion.h1
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.4, duration: 0.8 }}
+                                        className="text-[28px] md:text-[46px] lg:text-[58px] [@media(min-width:1600px)]:text-[60px] font-medium text-white mb-6 leading-[1.15] tracking-[-0.015em]"
+                                    >
+                                        {slides[currentSlide].title}
+                                    </motion.h1>
+
+                                    {/* Sub Content */}
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.6, duration: 0.8 }}
+                                        className="text-sm md:text-base text-white/90 mb-8 leading-relaxed font-normal max-w-3xl"
+                                    >
+                                        {slides[currentSlide].subtitle}
+                                    </motion.p>
+
+                                    {/* CTAs */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.8, duration: 0.8 }}
+                                        className="flex flex-wrap gap-4"
+                                    >
+                                        <button
+                                            onClick={() => setSignUpOpen(true)}
+                                            className="btn-fill-secondary"
+                                        >
+                                            <span className="relative z-10 flex items-center gap-3 font-semibold">
+                                                Start Now <ArrowRight className="w-5 h-5" />
+                                            </span>
+                                        </button>
+
+                                        <button
+                                            onClick={() => setLoginOpen(true)}
+                                            className="btn-outline-white"
+                                        >
+                                            <span className="relative z-10 font-semibold">Portal Login</span>
+                                        </button>
+                                    </motion.div>
+                                </div>
+
+                                {/* Slider Controls - Aligned with Buttons */}
                                 <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2, duration: 0.8 }}
-                                    className="flex flex-wrap gap-4 mb-6"
-                                >
-                                    {[
-                                        "Verified onboarding",
-                                        "Role-based visibility",
-                                        "Inventory and action logs"
-                                    ].map((text, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-white/95">
-                                            <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
-                                            <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em]">{text}</span>
-                                        </div>
-                                    ))}
-                                </motion.div>
-
-                                {/* Main Heading */}
-                                <motion.h1
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4, duration: 0.8 }}
-                                    className="text-[28px] md:text-[46px] lg:text-[58px] font-medium text-white mb-6 leading-[1.15] tracking-[-0.015em]"
-                                >
-                                    {slides[currentSlide].title}
-                                </motion.h1>
-
-                                {/* Sub Content */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.6, duration: 0.8 }}
-                                    className="text-sm md:text-base text-white/90 mb-8 leading-relaxed font-normal max-w-3xl"
-                                >
-                                    {slides[currentSlide].subtitle}
-                                </motion.p>
-
-                                {/* CTAs */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.8, duration: 0.8 }}
-                                    className="flex flex-wrap gap-4"
+                                    className="flex gap-2 mb-2 md:mb-1"
                                 >
                                     <button
-                                        onClick={() => setSignUpOpen(true)}
-                                        className="btn-fill-secondary"
+                                        onClick={prevSlide}
+                                        className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
                                     >
-                                        <span className="relative z-10 flex items-center gap-3 font-semibold">
-                                            Start Now <ArrowRight className="w-5 h-5" />
-                                        </span>
+                                        <ChevronLeft className="w-6 h-6" />
                                     </button>
-
                                     <button
-                                        onClick={() => setLoginOpen(true)}
-                                        className="btn-outline-white"
+                                        onClick={nextSlide}
+                                        className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
                                     >
-                                        <span className="relative z-10 font-semibold">Portal Login</span>
+                                        <ChevronRight className="w-6 h-6" />
                                     </button>
                                 </motion.div>
                             </div>
@@ -157,21 +180,7 @@ export default function Hero() {
             <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
             <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
 
-            {/* Slider Controls - Square Sharp Edges */}
-            <div className="absolute right-6 sm:right-10 bottom-10 z-30 flex gap-2">
-                <button
-                    onClick={prevSlide}
-                    className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
-                >
-                    <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                    onClick={nextSlide}
-                    className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
-                >
-                    <ChevronRight className="w-6 h-6" />
-                </button>
-            </div>
+
 
 
 
