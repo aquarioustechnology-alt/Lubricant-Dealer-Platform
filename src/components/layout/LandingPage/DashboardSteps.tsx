@@ -11,7 +11,6 @@ import {
     MessageSquare,
     BarChart3,
     MapPin,
-    Calendar,
     ArrowRight,
     Search,
     Plus,
@@ -98,10 +97,11 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
             <div className="flex flex-1 overflow-hidden">
                 {/* Fixed Sidebar - Compact */}
                 <div className="w-14 border-r border-slate-100 bg-[#FBFBFE] flex flex-col items-center py-5 gap-7 shrink-0">
-                    <LayoutDashboard className={cn("w-4.5 h-4.5", activeStep === 0 ? "text-primary" : "text-slate-300")} />
+                    <LayoutDashboard className="w-4.5 h-4.5 text-slate-300" />
                     <Box className={cn("w-4.5 h-4.5", activeStep === 0 ? "text-primary" : "text-slate-300")} />
                     <Bell className={cn("w-4.5 h-4.5", activeStep === 1 ? "text-primary" : "text-slate-300")} />
                     <CheckSquare className={cn("w-4.5 h-4.5", activeStep === 2 ? "text-primary" : "text-slate-300")} />
+                    <Truck className={cn("w-4.5 h-4.5", activeStep === 3 ? "text-primary" : "text-slate-300")} />
                     <MessageSquare className={cn("w-4.5 h-4.5", activeStep === 4 ? "text-primary" : "text-slate-300")} />
                     <div className="mt-auto pb-4">
                         <div className="w-7 h-7 rounded bg-slate-200" />
@@ -182,7 +182,7 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                                                             <td className="px-4 py-2.5 font-bold">{item.stock}</td>
                                                             <td className="px-4 py-2.5 text-right">
                                                                 <span className={cn(
-                                                                    "text-[8px] font-black uppercase px-1.5 py-0.5 rounded",
+                                                                    "text-[8px] font-bold uppercase px-1.5 py-0.5 rounded",
                                                                     item.status === "Low" ? "bg-amber-100 text-amber-700" :
                                                                         item.status === "Critical" ? "bg-red-100 text-red-700" : "bg-emerald-100 text-emerald-700"
                                                                 )}>{item.status}</span>
@@ -234,7 +234,7 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="text-[9px] text-slate-500 text-center italic mt-2">Score improved by +8% since yesterday</div>
+                                            <div className="text-[9px] text-slate-500 text-center mt-2">Score improved by +8% since yesterday</div>
                                         </div>
                                     </div>
                                     <div className="flex-1 bg-white border border-slate-200 p-4 rounded-none">
@@ -280,7 +280,7 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                                                         </div>
                                                         <div className="flex justify-between items-center pt-1 border-t border-slate-50">
                                                             <UserGroup />
-                                                            <button className="text-[9px] font-bold text-primary italic uppercase">Details</button>
+                                                            <button className="text-[9px] font-bold text-primary uppercase">Details</button>
                                                         </div>
                                                     </div>
                                                 ))}
@@ -309,7 +309,7 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                                                         <div className="text-[9px] text-slate-400 font-bold tracking-widest uppercase">ID: {ship.id}</div>
                                                         <div className="text-[11px] font-bold text-slate-900">{ship.brand} SKU Consignment</div>
                                                     </div>
-                                                    <span className={cn("text-[8px] font-black uppercase px-2 py-0.5", ship.status === "Ready" ? "bg-secondary text-white" : "bg-primary text-white")}>{ship.status}</span>
+                                                    <span className={cn("text-[8px] font-bold uppercase px-2 py-0.5", ship.status === "Ready" ? "bg-secondary text-white" : "bg-primary text-white")}>{ship.status}</span>
                                                 </div>
                                                 <div className="relative h-1 bg-slate-100 rounded-full mt-1">
                                                     <div className={cn("absolute inset-y-0 left-0 rounded-full", ship.status === "Ready" ? "w-[40%] bg-secondary" : "w-[75%] bg-primary")} />
@@ -386,42 +386,43 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
 
 const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
     return (
-        <div className="w-full h-full bg-[#0F172A] flex flex-col font-sans overflow-hidden">
-            {/* Dark Top Nav - Premium Slim */}
-            <div className="h-12 border-b border-white/5 bg-[#0F172A] flex items-center justify-between px-4 shrink-0">
+        <div className="w-full h-full bg-white flex flex-col font-sans overflow-hidden">
+            {/* Top Navigation Bar - Premium Slim White Theme */}
+            <div className="h-12 border-b border-slate-200 bg-white flex items-center justify-between px-4 shrink-0">
                 <div className="flex items-center gap-4">
-                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain brightness-0 invert" />
-                    <div className="h-5 w-[1px] bg-white/10" />
-                    <span className="text-[11px] font-semibold text-white/40 tracking-tight uppercase">Brand Console / <span className="text-white font-black">{brandSteps[activeStep]?.title}</span></span>
+                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain" />
+                    <div className="h-5 w-[1px] bg-slate-200" />
+                    <span className="text-[11px] font-medium text-slate-500 tracking-tight uppercase whitespace-nowrap">Brand Console / <span className="text-slate-900 font-bold">{brandSteps[activeStep]?.title}</span></span>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded">
+                    <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded">
                         <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                        <span className="text-[9px] font-bold text-white uppercase tracking-widest leading-none">Global Sync: Active</span>
+                        <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">System Status: Optimal</span>
                     </div>
                 </div>
             </div>
 
             <div className="flex flex-1 overflow-hidden">
-                {/* Fixed Dark Sidebar */}
-                <div className="w-14 border-r border-white/5 bg-[#0A0F1E] flex flex-col items-center py-6 gap-7 shrink-0">
-                    <BarChart3 className={cn("w-4.5 h-4.5", activeStep === 0 ? "text-brand-red" : "text-white/20")} />
-                    <MapPin className={cn("w-4.5 h-4.5", activeStep === 1 ? "text-brand-red" : "text-white/20")} />
-                    <Calendar className={cn("w-4.5 h-4.5", activeStep === 2 ? "text-brand-red" : "text-white/20")} />
-                    <LayoutDashboard className={cn("w-4.5 h-4.5", activeStep === 3 ? "text-brand-red" : "text-white/20")} />
+                {/* Side Navigation - White Theme */}
+                <div className="w-14 border-r border-slate-100 bg-[#FBFBFE] flex flex-col items-center py-6 gap-7 shrink-0">
+                    <Box className={cn("w-4.5 h-4.5", activeStep === 0 ? "text-primary" : "text-slate-300")} />
+                    <MapPin className={cn("w-4.5 h-4.5", activeStep === 1 ? "text-primary" : "text-slate-300")} />
+                    <CheckSquare className={cn("w-4.5 h-4.5", activeStep === 2 ? "text-primary" : "text-slate-300")} />
+                    <BarChart3 className={cn("w-4.5 h-4.5", activeStep === 3 ? "text-primary" : "text-slate-300")} />
+                    <MessageSquare className={cn("w-4.5 h-4.5", activeStep === 4 ? "text-primary" : "text-slate-300")} />
                     <div className="mt-auto pb-4">
-                        <div className="w-7 h-7 bg-white/5 rounded border border-white/10" />
+                        <div className="w-7 h-7 bg-slate-100 rounded border border-slate-200" />
                     </div>
                 </div>
 
                 {/* Content Viewer based on Step */}
-                <div className="flex-1 p-5 flex flex-col gap-5 overflow-hidden bg-[#020617]">
+                <div className="flex-1 p-5 flex flex-col gap-5 overflow-hidden bg-[#F8F9FD]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeStep}
-                            initial={{ opacity: 0, x: 12 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -12 }}
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.02 }}
                             transition={{ duration: 0.25 }}
                             className="flex-1 flex flex-col gap-5"
                         >
@@ -429,68 +430,68 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                                 <>
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
-                                            <h3 className="text-sm font-bold text-white leading-none tracking-tight">Dealer Inventory Matrix</h3>
-                                            <span className="text-[8px] bg-brand-red/20 text-brand-red font-black px-1.5 py-0.5 uppercase">88 Dealers Mapped</span>
+                                            <h3 className="text-sm font-bold text-slate-900 leading-none">Network Inventory Matrix</h3>
+                                            <span className="text-[8px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded uppercase">88 Registered Dealers</span>
                                         </div>
                                         <div className="flex gap-2">
-                                            <button className="bg-white/5 border border-white/10 text-white/60 text-[9px] font-bold px-2 py-1 rounded flex items-center gap-1.5"><Filter className="w-3 h-3" /> All Zones</button>
-                                            <button className="bg-brand-red text-white text-[9px] font-bold px-2 py-1 rounded flex items-center gap-1.5"><Download className="w-3 h-3" /> Export CSV</button>
+                                            <button className="bg-white border border-slate-200 text-slate-600 text-[9px] font-bold px-2 py-1 rounded flex items-center gap-1.5"><Filter className="w-3 h-3" /> All Zones</button>
+                                            <button className="bg-primary text-white text-[9px] font-bold px-2 py-1 rounded flex items-center gap-1.5"><Download className="w-3 h-3" /> Export Report</button>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-4 gap-3">
                                         {[
-                                            { label: "Total Stock Pushed", val: "442k Ltr", trend: "+8.4%" },
-                                            { label: "Channel Efficiency", val: "94.2%", trend: "Optimal" },
-                                            { label: "Alerting Outlets", val: "12", trend: "High Risk" },
-                                            { label: "Sync Latency", val: "14ms", trend: "Fast" }
+                                            { label: "Channel Stock", val: "442.2k Ltr", trend: "+8.4%" },
+                                            { label: "Fill Rate Avg", val: "94.2%", trend: "Stable" },
+                                            { label: "Out of Stock Points", val: "12 Sites", trend: "High Risk" },
+                                            { label: "Sync Latency", val: "14ms", trend: "Low" }
                                         ].map((s, i) => (
-                                            <div key={i} className="bg-white/5 p-3 border border-white/10 rounded-none flex flex-col justify-between h-16">
-                                                <div className="text-[8px] text-white/30 font-bold uppercase tracking-widest">{s.label}</div>
+                                            <div key={i} className="bg-white p-3 border border-slate-200 rounded-none flex flex-col justify-between h-16 shadow-sm">
+                                                <div className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">{s.label}</div>
                                                 <div className="flex items-end justify-between">
-                                                    <div className="text-sm font-bold text-white leading-none">{s.val}</div>
-                                                    <div className={cn("text-[7px] font-black italic", s.trend.includes("+") || s.trend === "Optimal" ? "text-emerald-500" : "text-brand-red")}>{s.trend}</div>
+                                                    <div className="text-[13px] font-bold text-slate-900 leading-none">{s.val}</div>
+                                                    <div className={cn("text-[7px] font-bold uppercase", s.trend.includes("+") || s.trend === "Stable" || s.trend === "Low" ? "text-emerald-600" : "text-brand-red")}>{s.trend}</div>
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="flex-1 bg-white/[0.02] border border-white/10 rounded-none flex flex-col overflow-hidden shadow-2xl">
-                                        <div className="h-9 border-b border-white/5 flex items-center px-4 justify-between bg-white/[0.03]">
+                                    <div className="flex-1 bg-white border border-slate-200 rounded-none flex flex-col overflow-hidden shadow-sm">
+                                        <div className="h-9 border-b border-slate-100 flex items-center px-4 justify-between bg-slate-50">
                                             <div className="flex gap-4">
-                                                <span className="text-[9px] font-bold text-white uppercase border-b border-brand-red pb-3 mt-3">Dealer List</span>
-                                                <span className="text-[9px] font-bold text-white/30 uppercase pb-3 mt-3">Flagged</span>
-                                                <span className="text-[9px] font-bold text-white/30 uppercase pb-3 mt-3">Top Sellers</span>
+                                                <span className="text-[9px] font-bold text-primary uppercase border-b border-primary pb-3.5 mt-3.5">Dealer List</span>
+                                                <span className="text-[9px] font-bold text-slate-400 uppercase pb-3.5 mt-3.5">Flagged Outlets</span>
+                                                <span className="text-[9px] font-bold text-slate-400 uppercase pb-3.5 mt-3.5">High Performance</span>
                                             </div>
-                                            <MoreHorizontal className="w-4 h-4 text-white/20" />
+                                            <MoreHorizontal className="w-4 h-4 text-slate-400" />
                                         </div>
                                         <div className="flex-1 overflow-auto">
                                             <table className="w-full text-left">
                                                 <thead>
-                                                    <tr className="text-[8px] font-bold text-white/30 uppercase border-b border-white/5 bg-white/[0.01]">
-                                                        <th className="px-4 py-2">Dealer Outlet</th>
-                                                        <th className="px-4 py-2">Zone</th>
-                                                        <th className="px-4 py-2">SKU Coverage</th>
-                                                        <th className="px-4 py-2">Current Vol.</th>
-                                                        <th className="px-4 py-2 text-right">Status</th>
+                                                    <tr className="text-[8px] font-bold text-slate-400 uppercase border-b border-slate-50 bg-slate-50/50">
+                                                        <th className="px-4 py-2">Entity Name</th>
+                                                        <th className="px-4 py-2">Primary Zone</th>
+                                                        <th className="px-4 py-2">Stock Coverage</th>
+                                                        <th className="px-4 py-2">Available Vol.</th>
+                                                        <th className="px-4 py-2 text-right">Health Status</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody className="divide-y divide-white/5">
+                                                <tbody className="divide-y divide-slate-50">
                                                     {[
-                                                        { name: "Shree Balaji Oils", zone: "North (Delhi)", coverage: "100%", vol: "14.2k Ltr", status: "Healthy" },
-                                                        { name: "Metro Lubricants", zone: "North (GZB)", coverage: "84%", vol: "0.8k Ltr", status: "Critical" },
-                                                        { name: "Vikas Automobiles", zone: "North (Noida)", coverage: "92%", vol: "8.4k Ltr", status: "Low" },
-                                                        { name: "Capital Spares", zone: "North (Delhi)", coverage: "100%", vol: "11.1k Ltr", status: "Healthy" },
-                                                        { name: "Royal Traders", zone: "North (Gurgaon)", coverage: "98%", vol: "14.5k Ltr", status: "Healthy" }
+                                                        { name: "Shree Balaji Oils", zone: "New Delhi (North)", coverage: "100%", vol: "14.2k Ltr", status: "Healthy" },
+                                                        { name: "Metro Lubricants", zone: "Ghaziabad (North)", coverage: "84%", vol: "0.8k Ltr", status: "Critical" },
+                                                        { name: "Vikas Automobiles", zone: "Noida (North)", coverage: "92%", vol: "8.4k Ltr", status: "Low Stock" },
+                                                        { name: "Capital Spares", zone: "Dwarka (West)", coverage: "100%", vol: "11.1k Ltr", status: "Healthy" },
+                                                        { name: "Royal Traders", zone: "Gurgaon (West)", coverage: "98%", vol: "14.5k Ltr", status: "Healthy" }
                                                     ].map((d, i) => (
-                                                        <tr key={i} className="text-[10px] text-white/70 hover:bg-white/5 transition-colors">
-                                                            <td className="px-4 py-2 font-bold text-white">{d.name}</td>
-                                                            <td className="px-4 py-2 font-medium opacity-60">{d.zone}</td>
-                                                            <td className="px-4 py-2 font-mono text-[9px]">{d.coverage}</td>
-                                                            <td className="px-4 py-2 font-bold">{d.vol}</td>
-                                                            <td className="px-4 py-2 text-right">
+                                                        <tr key={i} className="text-[10px] text-slate-600 hover:bg-slate-50 transition-colors">
+                                                            <td className="px-4 py-2.5 font-bold text-slate-900">{d.name}</td>
+                                                            <td className="px-4 py-2.5 font-medium">{d.zone}</td>
+                                                            <td className="px-4 py-2.5 font-mono text-[9px] opacity-70">{d.coverage}</td>
+                                                            <td className="px-4 py-2.5 font-bold">{d.vol}</td>
+                                                            <td className="px-4 py-2.5 text-right">
                                                                 <span className={cn(
-                                                                    "text-[7px] font-black uppercase px-1.5 py-0.5 rounded",
-                                                                    d.status === "Healthy" ? "bg-emerald-500/10 text-emerald-500" :
-                                                                        d.status === "Low" ? "bg-amber-500/10 text-amber-500" : "bg-brand-red/10 text-brand-red"
+                                                                    "text-[7px] font-bold uppercase px-1.5 py-0.5 rounded",
+                                                                    d.status === "Healthy" ? "bg-emerald-50 text-emerald-600 border border-emerald-100" :
+                                                                        d.status === "Low Stock" ? "bg-amber-50 text-amber-600 border border-amber-100" : "bg-red-50 text-red-600 border border-red-100"
                                                                 )}>{d.status}</span>
                                                             </td>
                                                         </tr>
@@ -505,44 +506,44 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                             {activeStep === 1 && (
                                 <>
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-sm font-bold text-white leading-none tracking-tight">Geo-Spatial Hub Logic</h3>
-                                        <div className="flex items-center gap-4 text-[9px] font-bold text-white/40">
+                                        <h3 className="text-sm font-bold text-slate-900 leading-none">Spatial Zonal Intelligence</h3>
+                                        <div className="flex items-center gap-4 text-[9px] font-bold text-slate-400 uppercase tracking-tight">
                                             <span>Active Depots: 14</span>
-                                            <span>Scan Radius: 50km</span>
+                                            <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                                            <span>Scanning Radius: 50km</span>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-4 gap-3">
-                                        {["North Hub", "Central", "South Hub", "Overseas"].map(z => (
-                                            <div key={z} className="bg-white/5 border border-white/10 p-3 rounded-none flex flex-col items-center gap-1">
-                                                <div className="text-[8px] text-white/30 font-bold uppercase tracking-widest">{z}</div>
-                                                <div className="text-xs font-black text-white italic">44.2k</div>
-                                                <div className="w-full h-[1px] bg-white/5 mt-1" />
-                                                <div className="text-[7px] text-emerald-500 font-bold uppercase">Linked</div>
+                                        {["North Hub", "Central", "South Hub", "Regional"].map(z => (
+                                            <div key={z} className="bg-white border border-slate-200 p-3 rounded-none flex flex-col items-center gap-1 shadow-sm">
+                                                <div className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">{z}</div>
+                                                <div className="text-sm font-bold text-slate-900">44.2k Ltr</div>
+                                                <div className="w-full h-1 bg-slate-50 rounded-full mt-1 overflow-hidden">
+                                                    <div className="h-full bg-primary w-[75%]" />
+                                                </div>
+                                                <div className="text-[7px] text-emerald-600 font-bold uppercase">Optimal</div>
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="flex-1 bg-white/5 border border-white/10 rounded-none relative overflow-hidden flex flex-col">
-                                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:25px_25px]" />
-                                        <div className="absolute top-4 right-4 bg-brand-red p-2 rounded flex flex-col gap-1 items-center">
-                                            <div className="text-[7px] font-black text-white uppercase italic">Critical</div>
-                                            <div className="text-[10px] font-black text-white italic">HOTSPOT</div>
-                                        </div>
-                                        <div className="flex-1 p-6 flex flex-col items-center justify-center">
-                                            <div className="relative">
-                                                <div className="absolute inset-0 bg-brand-red/20 blur-[20px] rounded-full scale-150 animate-pulse" />
-                                                <MapPin className="w-10 h-10 text-brand-red relative z-10" />
+                                    <div className="flex-1 bg-white border border-slate-200 rounded-none relative overflow-hidden flex flex-col shadow-sm">
+                                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#0066B2_1px,_transparent_1px)] bg-[size:16px_16px]" />
+                                        <div className="absolute top-4 right-4 bg-primary text-white px-2 py-1 rounded text-[8px] font-bold uppercase tracking-widest shadow-lg">Network Overlay Active</div>
+                                        <div className="flex-1 flex flex-col items-center justify-center p-6 relative">
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="w-[200px] h-[200px] rounded-full bg-primary/5 border border-primary/10 animate-pulse" />
                                             </div>
-                                            <div className="text-center mt-4">
-                                                <div className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-1">Live Spatial Scanning</div>
-                                                <div className="text-[9px] text-white/40 font-medium max-w-[240px] leading-relaxed">Cross-referencing real-time dealer inventory with zonal replenishment schedules.</div>
+                                            <MapPin className="w-10 h-10 text-primary mb-4" />
+                                            <div className="text-center max-w-[280px]">
+                                                <div className="text-[10px] font-bold text-slate-900 uppercase tracking-[0.2em] mb-2 leading-none">Global Supply Heatmap</div>
+                                                <div className="text-[9px] text-slate-500 font-medium leading-relaxed">Visualizing live distribution flow. Currently tracking 422 nodes across North and West zones with zero packet loss.</div>
                                             </div>
                                         </div>
-                                        <div className="h-10 border-t border-white/5 bg-black/40 px-4 flex items-center justify-between text-[8px] font-black text-white/40 uppercase tracking-widest">
+                                        <div className="h-10 border-t border-slate-100 bg-slate-50 px-4 flex items-center justify-between text-[8px] font-bold text-slate-400 uppercase tracking-widest">
                                             <div className="flex gap-4">
-                                                <span>Nodes: 422</span>
-                                                <span>Packet Loss: 0%</span>
+                                                <span>Active Streams: 12</span>
+                                                <span>Data Latency: 4ms</span>
                                             </div>
-                                            <span className="text-emerald-500 flex items-center gap-1"><div className="w-1 h-1 bg-emerald-500 rounded-full" /> Link Stabilized</span>
+                                            <span className="text-emerald-600 flex items-center gap-1.5"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" /> Zonal Link Stabilized</span>
                                         </div>
                                     </div>
                                 </>
@@ -551,42 +552,48 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                             {activeStep === 2 && (
                                 <>
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-sm font-bold text-white leading-none">Fulfilment Policy Matrix</h3>
-                                        <div className="text-[8px] font-black bg-emerald-500 text-white px-2 py-0.5 uppercase tracking-widest leading-none">Global Health: 98%</div>
+                                        <h3 className="text-sm font-bold text-slate-900 leading-none">SLA & Fulfilment Performance</h3>
+                                        <div className="text-[8px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100 px-2 py-0.5 uppercase tracking-widest">Global Health: 98.2%</div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
-                                        <div className="bg-white/5 border border-white/10 rounded-none p-4 flex flex-col justify-between overflow-hidden relative">
-                                            <div className="absolute top-0 right-0 p-2"><TrendingUp className="w-4 h-4 text-secondary" /></div>
-                                            <div className="text-2xl font-black text-secondary leading-none mb-1 italic">94.2%</div>
-                                            <div className="text-[8px] text-white/30 font-bold uppercase tracking-widest">Monthly Policy Threshold</div>
-                                            <div className="w-full h-1 bg-white/5 rounded-full mt-3 overflow-hidden">
-                                                <div className="h-full bg-secondary w-[94.2%]" />
+                                        <div className="bg-white border border-slate-200 rounded-none p-4 flex flex-col justify-between shadow-sm relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-3 opacity-10"><TrendingUp className="w-8 h-8 text-primary" /></div>
+                                            <div className="text-2xl font-bold text-primary leading-none mb-1">94.2%</div>
+                                            <div className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Consignment Fulfilment Rate</div>
+                                            <div className="w-full h-1 bg-slate-100 rounded-full mt-3 overflow-hidden">
+                                                <div className="h-full bg-primary w-[94.2%]" />
                                             </div>
                                         </div>
-                                        <div className="bg-white/5 border border-white/10 rounded-none p-4 flex flex-col justify-between">
-                                            <div className="text-2xl font-black text-white leading-none mb-1 italic">0.14h</div>
-                                            <div className="text-[8px] text-white/30 font-bold uppercase tracking-widest">Avg Dealer Response Time</div>
-                                            <div className="text-[7px] text-emerald-500 font-black mt-2 italic">-12% Vs Last Week</div>
+                                        <div className="bg-white border border-slate-200 rounded-none p-4 flex flex-col justify-between shadow-sm">
+                                            <div className="text-2xl font-bold text-slate-900 leading-none mb-1">0.14h</div>
+                                            <div className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Average Response Latency (ARL)</div>
+                                            <div className="flex items-center gap-2 mt-2">
+                                                <div className="text-[7px] text-white bg-emerald-500 px-1 py-0.5 rounded font-bold uppercase">-12% Vs Prev</div>
+                                                <span className="text-[8px] text-slate-400 font-medium">Out-performing regional benchmark</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex-1 bg-white/5 border border-white/10 rounded-none flex flex-col">
-                                        <div className="p-3 border-b border-white/5 bg-white/[0.02] text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] flex justify-between items-center">
-                                            <span>Granular Efficiency Tracker</span>
-                                            <MiniChart color="bg-brand-red" />
+                                    <div className="flex-1 bg-white border border-slate-200 rounded-none flex flex-col shadow-sm">
+                                        <div className="p-3 border-b border-slate-100 bg-slate-50 text-[9px] font-bold text-slate-400 uppercase tracking-widest flex justify-between items-center">
+                                            <span>Granular Logistics Accuracy</span>
+                                            <MiniChart color="bg-primary" />
                                         </div>
-                                        <div className="p-5 flex-1 flex flex-col justify-around">
+                                        <div className="p-5 flex-1 flex flex-col justify-center gap-6">
                                             {[
-                                                { label: "Inventory Reporting Accuracy", p: 99 },
-                                                { label: "Deployment Timeliness", p: 84 },
-                                                { label: "Dealer Resource Allocation", p: 91 }
+                                                { label: "Inventory Reporting Precision", val: 99.1, desc: "Across 88 mapped dealer outlets" },
+                                                { label: "On-Time Dispatch Compliance", val: 84.4, desc: "High traffic delays in North Zone" },
+                                                { label: "Resource Allocation Efficiency", val: 91.8, desc: "Optimal vehicle utilization metrics" }
                                             ].map((m, i) => (
                                                 <div key={i} className="space-y-1.5">
-                                                    <div className="flex justify-between text-[9px] font-bold uppercase tracking-widest">
-                                                        <span className="text-white/40">{m.label}</span>
-                                                        <span className="text-white">{m.p}%</span>
+                                                    <div className="flex justify-between items-end">
+                                                        <div className="flex flex-col">
+                                                            <span className="text-[9px] font-bold text-slate-700 uppercase tracking-wide">{m.label}</span>
+                                                            <span className="text-[7px] text-slate-400 font-medium">{m.desc}</span>
+                                                        </div>
+                                                        <span className="text-[11px] font-bold text-slate-900">{m.val}%</span>
                                                     </div>
-                                                    <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                                                        <div className={cn("h-full transition-all duration-1000", m.p > 90 ? "bg-emerald-500" : "bg-brand-red")} style={{ width: `${m.p}%` }} />
+                                                    <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
+                                                        <div className={cn("h-full transition-all duration-1000", m.val > 90 ? "bg-emerald-500" : "bg-amber-500")} style={{ width: `${m.val}%` }} />
                                                     </div>
                                                 </div>
                                             ))}
@@ -598,32 +605,32 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                             {activeStep === 3 && (
                                 <>
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-sm font-bold text-white leading-none tracking-tight">Demand Intelligence Forecasting</h3>
+                                        <h3 className="text-sm font-bold text-slate-900 leading-none">Demand Forecasting Module</h3>
                                         <div className="flex gap-2">
-                                            <span className="text-[8px] px-1.5 py-0.5 bg-white/5 border border-white/10 text-white/40 font-black uppercase">Q3 Projection</span>
+                                            <span className="text-[8px] px-1.5 py-0.5 bg-slate-50 border border-slate-200 text-slate-500 font-bold uppercase rounded">Q3 Projection Mode</span>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
-                                        <div className="bg-white/5 border border-white/10 p-4 rounded-none flex flex-col justify-between">
-                                            <div className="text-[9px] text-white/30 font-bold uppercase tracking-widest leading-none mb-3">Est. Growth Signal</div>
-                                            <div className="text-3xl font-black text-white italic">+14.2%</div>
-                                            <div className="text-[8px] text-emerald-500 font-black uppercase mt-1 tracking-tighter italic">Confidence Level: High</div>
+                                        <div className="bg-white border border-slate-200 p-4 rounded-none flex flex-col justify-between shadow-sm">
+                                            <div className="text-[9px] text-slate-400 font-bold uppercase tracking-widest leading-none mb-3">Projected Market Uptake</div>
+                                            <div className="text-3xl font-bold text-primary leading-none">+14.2%</div>
+                                            <div className="text-[8px] text-emerald-600 font-bold uppercase mt-2 tracking-tight">Signal Confidence: High [P=0.94]</div>
                                         </div>
-                                        <div className="bg-white/5 border border-white/10 p-4 rounded-none flex flex-col justify-between">
-                                            <div className="text-[9px] text-white/30 font-bold uppercase tracking-widest leading-none mb-3">Supply Risk Factor</div>
-                                            <div className="text-3xl font-black text-brand-red italic leading-none">0.08</div>
-                                            <div className="text-[8px] text-white/20 font-black uppercase mt-1 tracking-tighter italic">Risk Resilient Zone</div>
+                                        <div className="bg-white border border-slate-200 p-4 rounded-none flex flex-col justify-between shadow-sm">
+                                            <div className="text-[9px] text-slate-400 font-bold uppercase tracking-widest leading-none mb-3">Supply Constraint Index</div>
+                                            <div className="text-3xl font-bold text-brand-red leading-none">0.08</div>
+                                            <div className="text-[8px] text-slate-400 font-bold uppercase mt-2 tracking-tight">Risk Resilient Network Zone</div>
                                         </div>
                                     </div>
-                                    <div className="flex-1 bg-white/[0.03] border border-white/10 rounded-none p-5 flex flex-col relative overflow-hidden">
+                                    <div className="flex-1 bg-white border border-slate-200 rounded-none p-5 flex flex-col relative overflow-hidden shadow-sm">
                                         <div className="absolute top-4 right-4"><MiniChart color="bg-secondary" /></div>
-                                        <div className="text-[10px] text-white/40 font-bold uppercase mb-8 tracking-widest border-l-2 border-brand-red pl-3 italic">Demand Curve Simulation</div>
-                                        <div className="flex-1 flex items-end justify-between px-4 pb-2 border-l border-b border-white/5 relative bg-white/[0.01]">
-                                            <div className="absolute top-[-25px] left-0 text-[7px] font-black text-white/10 uppercase tracking-widest italic">Forecasted Vol (k Ltr)</div>
+                                        <div className="text-[10px] text-slate-400 font-bold uppercase mb-8 tracking-widest border-l-2 border-primary pl-3">Probabilistic Multi-Month Trend</div>
+                                        <div className="flex-1 flex items-end justify-between px-4 pb-2 border-l border-b border-slate-100 relative bg-slate-50/30">
+                                            <div className="absolute top-[-25px] left-0 text-[7px] font-bold text-slate-300 uppercase tracking-widest">Projected Vol (Metric k Ltr)</div>
                                             {[40, 60, 45, 90, 70, 85, 100, 75, 55, 80, 70, 95].map((h, i) => (
-                                                <div key={i} className="flex-1 mx-0.5 bg-brand-red/10 border-t border-brand-red relative group transition-all" style={{ height: `${h}%` }}>
-                                                    <div className="absolute top-[-15px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-brand-red px-1 rounded text-[7px] font-bold text-white shadow-xl">+{h}%</div>
-                                                    <div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 text-[6px] font-bold text-white/20 uppercase tracking-tighter">M{i + 1}</div>
+                                                <div key={i} className="flex-1 mx-0.5 bg-primary/10 border-t border-primary relative group hover:bg-primary/20 transition-all" style={{ height: `${h}%` }}>
+                                                    <div className="absolute top-[-15px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-primary px-1.5 py-0.5 rounded text-[8px] font-bold text-white shadow-lg">+{h}% Market</div>
+                                                    <div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 text-[7px] font-bold text-slate-300 uppercase">M{i + 1}</div>
                                                 </div>
                                             ))}
                                         </div>
@@ -632,34 +639,37 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
                             )}
 
                             {activeStep === 4 && (
-                                <div className="flex-1 flex flex-col bg-white/5 border border-white/10 rounded-none overflow-hidden font-sans">
-                                    <div className="p-4 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
+                                <div className="flex-1 flex flex-col bg-white border border-slate-200 rounded-none overflow-hidden shadow-sm">
+                                    <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-none bg-brand-red flex items-center justify-center text-white font-black text-xs italic uppercase shadow-[0_0_15px_rgba(204,21,19,0.4)]">B</div>
+                                            <div className="w-8 h-8 rounded-none bg-primary flex items-center justify-center text-white font-bold text-xs shadow-sm">B</div>
                                             <div>
-                                                <h3 className="text-xs font-bold text-white leading-none">Global Broadcast Center</h3>
-                                                <div className="text-[8px] text-emerald-500 font-bold uppercase mt-1 tracking-widest">Protocol Engaged</div>
+                                                <h3 className="text-xs font-bold text-slate-900 leading-none">Network Broadcast Center</h3>
+                                                <div className="text-[8px] text-emerald-600 font-bold uppercase mt-1 tracking-widest">Signal Integrity High</div>
                                             </div>
                                         </div>
                                         <UserGroup />
                                     </div>
-                                    <div className="flex-1 p-6 space-y-6 overflow-y-auto">
+                                    <div className="flex-1 p-6 space-y-6 overflow-y-auto bg-white">
                                         <div className="space-y-4">
                                             <div className="space-y-1.5">
-                                                <label className="text-[9px] text-white/30 font-bold uppercase tracking-widest block ml-1">Target Network Segment</label>
-                                                <div className="w-full bg-white/5 border border-white/10 p-3 rounded-none text-[11px] text-white flex justify-between items-center group cursor-pointer hover:border-white/30 transition-all">
-                                                    Delhi NCR & North Hub (Audit Active)
-                                                    <ChevronDown className="w-4 h-4 text-white/20 group-hover:text-white/40" />
+                                                <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block ml-0.5">Define Distribution Scope</label>
+                                                <div className="w-full bg-slate-50 border border-slate-200 p-3 rounded-none text-[11px] text-slate-900 flex justify-between items-center group cursor-pointer hover:border-primary/30 transition-all">
+                                                    Delhi NCR Zone - All Mapped Outlets [88]
+                                                    <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-primary/50" />
                                                 </div>
                                             </div>
                                             <div className="space-y-1.5">
-                                                <label className="text-[9px] text-white/30 font-bold uppercase tracking-widest block ml-1">Announcement Body (Draft)</label>
-                                                <div className="w-full bg-[#020617] border border-white/10 rounded-none min-h-[140px] p-4 text-[11px] text-white/40 leading-relaxed italic border-dashed group-hover:border-solid transition-all">
-                                                    Official supply chain notification: Mandatory inventory audit scheduled for Delhi NCR Hub. All dealers must reconcile SKUs by 18:00 IST...
+                                                <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block ml-0.5">Announcement Content (Draft)</label>
+                                                <div className="w-full bg-white border border-slate-200 border-dashed rounded-none min-h-[140px] p-4 text-[11px] text-slate-400 leading-relaxed group hover:border-primary transition-all">
+                                                    Official Supply Chain Notification: Scheduled inventory reconciliation is mandated for all North Hub dealers for the Q3 market shift. Please ensure SKU compliance by COB Friday...
                                                 </div>
                                             </div>
                                         </div>
-                                        <button className="w-full py-3.5 bg-brand-red text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-brand-red/90 transition-all shadow-[0_4px_25px_rgba(204,21,19,0.3)] border border-brand-red/50 active:scale-[0.98]">Push Command Signal</button>
+                                        <div className="flex gap-4">
+                                            <button className="flex-1 py-3.5 bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-primary/90 transition-all shadow-md active:scale-[0.98]">Broadcast Command</button>
+                                            <button className="w-14 py-3.5 bg-slate-50 text-slate-400 border border-slate-200 flex items-center justify-center rounded-none hover:bg-slate-100 transition-all"><Search className="w-4 h-4" /></button>
+                                        </div>
                                     </div>
                                 </div>
                             )}
@@ -732,10 +742,10 @@ export default function DashboardSteps() {
                                 key={tab}
                                 onClick={() => handleTabChange(tab)}
                                 className={cn(
-                                    "px-12 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] transition-all",
+                                    "px-12 py-3.5 text-[11px] uppercase tracking-[0.2em] transition-all",
                                     activeTab === tab
-                                        ? "bg-secondary text-white shadow-xl"
-                                        : "text-white/60 hover:text-white"
+                                        ? "bg-secondary text-white shadow-xl font-semibold"
+                                        : "text-white/60 hover:text-white font-medium"
                                 )}
                             >
                                 {tab}
