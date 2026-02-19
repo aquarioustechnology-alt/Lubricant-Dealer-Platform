@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 const benefits = [
     {
