@@ -1,8 +1,9 @@
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
-import Hero from "@/components/layout/Landing page/Hero";
-import ProofStrip from "@/components/layout/Landing page/Proof Strip";
-import DealerView from "@/components/layout/Landing page/DealerView";
+import Hero from "@/components/layout/LandingPage/Hero";
+import ProofStrip from "@/components/layout/LandingPage/ProofStrip";
+import DealerView from "@/components/layout/LandingPage/DealerView";
+import Features from "@/components/layout/LandingPage/Features";
 
 export default function Home() {
   return (
@@ -11,31 +12,32 @@ export default function Home() {
       <Hero />
       <ProofStrip />
       <DealerView />
+      <Features />
 
-      {/* Features Preview Section - Placeholder can be updated later if needed */}
-      <section className="py-32 bg-slate-50">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-[#001D3D] mb-4">Precision Engineered Solutions</h2>
+      {/* Legacy Placeholder Section - Removing redundant summary or updating later */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6 text-center border-t border-slate-100 pt-16">
+          <h2 className="text-4xl font-extrabold text-[#001D3D] mb-4 tracking-tight">Built for Performance</h2>
           <p className="text-slate-500 max-w-2xl mx-auto mb-16 font-medium">
-            Our platform provides end-to-end management for lubricant dealerships, from inventory tracking to compliance reporting.
+            Join the ecosystem designed specifically for the Indian lubricant market.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Inventory Management",
-                desc: "Real-time tracking of stock levels with automated reordering."
+                title: "Scaleable Architecture",
+                desc: "Handle thousands of dealer transactions without lag."
               },
               {
-                title: "Compliance Tools",
-                desc: "Stay ahead of regulations with built-in reporting and documentation."
+                title: "Local Support",
+                desc: "Dedicated account management for regional distribution networks."
               },
               {
-                title: "Dealer Portal",
-                desc: "A unified dashboard for managing orders, analytics, and customers."
+                title: "Rapid Deployment",
+                desc: "Get your entire dealer base mapped and live within 7 days."
               }
             ].map((feature, i) => (
-              <div key={i} className="bg-white p-8 rounded-none border border-slate-100 text-left hover:shadow-2xl transition-all hover:-translate-y-2">
+              <div key={i} className="bg-slate-50 p-8 rounded-none border border-slate-100 text-left hover:shadow-xl transition-all hover:-translate-y-2">
                 <div className="w-12 h-12 bg-primary/10 rounded-none mb-6 flex items-center justify-center text-primary font-bold">
                   0{i + 1}
                 </div>
