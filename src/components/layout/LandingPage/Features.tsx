@@ -60,7 +60,7 @@ const cardVariants: Variants = {
 export default function Features() {
     return (
         <section id="features" className="py-[106px] bg-[#F8FAFC] overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-6">
+            <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16">
                 {/* Section Header */}
                 <div className="text-center mb-20 flex flex-col items-center">
                     <motion.div

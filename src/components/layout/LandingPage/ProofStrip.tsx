@@ -24,8 +24,8 @@ const features = [
 
 export default function ProofStrip() {
     return (
-        <section className="relative z-30 -mt-12 lg:-mt-16 px-10">
-            <div className="container mx-auto">
+        <section className="relative z-30 -mt-12 lg:-mt-16">
+            <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16">
                 <div className="bg-primary shadow-2xl flex flex-col lg:flex-row items-center py-8 lg:py-0 min-h-[120px] px-6 lg:px-16">
                     {/* Left Heading */}
                     <div className="pl-0 pr-2 lg:pr-3 py-4 lg:py-0 border-b lg:border-b-0 lg:border-r border-white/40 flex items-center justify-center lg:justify-start">

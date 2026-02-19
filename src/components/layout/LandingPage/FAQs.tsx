@@ -48,7 +48,7 @@ export default function FAQs() {
             {/* Background Texture Accents */}
             <div className="absolute top-0 right-0 w-1/4 h-full bg-slate-50/50 -skew-x-12 translate-x-1/2 pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
                     {/* Left Side Info */}

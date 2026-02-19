@@ -83,7 +83,7 @@ export default function Hero() {
 
                     {/* Content Container - Matching Header container */}
                     <div className="relative h-full flex items-center pt-16 lg:pt-20">
-                        <div className="container mx-auto w-full">
+                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full">
                             <div className="max-w-4xl">
                                 {/* Trust Line */}
                                 <motion.div

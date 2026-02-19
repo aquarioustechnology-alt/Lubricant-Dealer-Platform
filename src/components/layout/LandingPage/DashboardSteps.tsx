@@ -710,7 +710,7 @@ export default function DashboardSteps() {
             {/* Visual Branded Accents */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
                 {/* Fixed Header Style */}
                 <div className="max-w-4xl mx-auto text-center mb-10">
                     <motion.div

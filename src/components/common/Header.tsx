@@ -40,7 +40,7 @@ export default function Header() {
                 "hidden lg:block bg-primary text-white py-2 px-6 transition-all duration-300",
                 scrolled ? "h-0 opacity-0 overflow-hidden py-0" : "h-auto opacity-100"
             )}>
-                <div className="container mx-auto flex justify-between items-center text-[11px] font-semibold uppercase tracking-widest">
+                <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 flex justify-between items-center text-[11px] font-semibold uppercase tracking-widest">
                     <div className="flex gap-6 items-center">
                         <div className="flex items-center gap-2">
                             <Phone className="w-3.5 h-3.5" />
@@ -71,7 +71,7 @@ export default function Header() {
                     scrolled ? "bg-white shadow-md py-3" : "bg-transparent"
                 )}
             >
-                <div className="container mx-auto flex items-center justify-between">
+                <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between">
                     <div className="flex items-center gap-2 cursor-pointer" onClick={scrollToTop}>
                         <Image
                             src={scrolled ? "/images/Logo.png" : "/images/New White based logo.png"}
