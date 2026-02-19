@@ -21,7 +21,7 @@ const benefits = [
 
 export default function DealerView() {
     return (
-        <section className="py-20 lg:py-24 bg-white overflow-hidden">
+        <section className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Content Side */}

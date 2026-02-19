@@ -4,6 +4,7 @@ import Hero from "@/components/layout/LandingPage/Hero";
 import ProofStrip from "@/components/layout/LandingPage/ProofStrip";
 import DealerView from "@/components/layout/LandingPage/DealerView";
 import Features from "@/components/layout/LandingPage/Features";
+import BrandView from "@/components/layout/LandingPage/BrandView";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <ProofStrip />
       <DealerView />
       <Features />
+      <BrandView />
 
       {/* Legacy Placeholder Section - Removing redundant summary or updating later */}
       <section className="py-32 bg-white">
