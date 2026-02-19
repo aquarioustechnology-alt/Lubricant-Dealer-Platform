@@ -58,10 +58,10 @@ export default function FAQs() {
                                 <div className="w-12 h-[3px] bg-brand-red" />
                                 <span className="text-brand-red font-bold uppercase tracking-[0.3em] text-[12px]">FAQs</span>
                             </div>
-                            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+                            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] tracking-tight">
                                 Questions People Ask Before They Join
                             </h2>
-                            <p className="text-slate-500 text-lg leading-relaxed max-w-xl font-medium">
+                            <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-xl font-normal">
                                 Everything you need to know about setting up your workspace and managing lubricant distribution.
                             </p>
                         </div>

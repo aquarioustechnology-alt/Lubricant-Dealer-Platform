@@ -43,11 +43,11 @@ export default function BrandView() {
                                 </span>
                             </div>
 
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
+                            <h2 className="text-3xl md:text-5xl font-bold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
                                 Brands Get Visibility Without Micromanaging Dealers.
                             </h2>
 
-                            <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
+                            <p className="text-slate-600 text-sm md:text-base mb-8 leading-relaxed font-normal">
                                 Dealer helps brands see where stock is available, which zones are active, and how fulfilment is progressing, without manual reporting.
                             </p>
 

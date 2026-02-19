@@ -10,8 +10,8 @@ import { LoginModal, SignUpModal } from "../../common/AuthModals";
 const slides = [
     {
         image: "/images/Hero Image 1.png",
-        title: "Lubricant Dealer and Brand Portal for Live Inventory Visibility in India",
-        subtitle: "DEALER helps lubricant dealers update stock once and keeps mapped brands informed in real time. Reduce stock calls, avoid confusion, and keep fulfilment updates clear with Ready and Dispatched status tracking.",
+        title: "Lubricant Dealer & Brand Portal for Live Inventory Visibility",
+        subtitle: "Update stock once to keep mapped brands informed in real-time. Track fulfilment status instantly and eliminate manual follow-ups.",
     },
     {
         image: "/images/Hero Image 2.png",
@@ -109,7 +109,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4, duration: 0.8 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15]"
+                                    className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-[1.15]"
                                 >
                                     {slides[currentSlide].title}
                                 </motion.h1>
@@ -119,7 +119,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.8 }}
-                                    className="text-base md:text-lg text-white/90 mb-8 leading-relaxed font-semibold max-w-3xl"
+                                    className="text-sm md:text-base text-white/90 mb-8 leading-relaxed font-normal max-w-3xl"
                                 >
                                     {slides[currentSlide].subtitle}
                                 </motion.p>

@@ -78,7 +78,7 @@ export default function Features() {
                             </span>
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-[#001D3D] max-w-4xl leading-[1.1] tracking-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold text-[#001D3D] max-w-4xl leading-[1.1] tracking-tight">
                             Everything Dealers and Brands Need - Without Extra Complexity
                         </h2>
                     </motion.div>

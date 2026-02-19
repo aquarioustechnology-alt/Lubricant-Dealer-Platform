@@ -43,11 +43,11 @@ export default function DealerView() {
                                 </span>
                             </div>
 
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
+                            <h2 className="text-3xl md:text-5xl font-bold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
                                 Made for Dealers Who Handle Multiple Brands Daily
                             </h2>
 
-                            <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
+                            <p className="text-slate-600 text-sm md:text-base mb-8 leading-relaxed font-normal">
                                 If you sell lubricants, your biggest daily work is inventory and fulfilment updates. Dealer keeps it simple and fast.
                             </p>
 

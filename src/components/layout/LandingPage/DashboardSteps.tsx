@@ -724,11 +724,11 @@ export default function DashboardSteps() {
                                 PORTAL PREVIEW
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-[1.1] tracking-tight text-white max-w-4xl mx-auto">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-[1.1] tracking-tight text-white max-w-4xl mx-auto">
                             Screens That Match the Real Work – <br className="hidden md:block" />
                             Inventory, Assignments, Insights
                         </h2>
-                        <p className="text-white text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-white text-sm md:text-base font-normal max-w-2xl mx-auto leading-relaxed">
                             This is what users see after login, designed for daily use, not for decoration
                         </p>
                     </motion.div>
