@@ -14,7 +14,6 @@ import {
     Calendar,
     ArrowRight,
     Search,
-    User,
     Plus,
     Filter,
     MoreHorizontal,
