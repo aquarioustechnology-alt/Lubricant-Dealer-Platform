@@ -9,17 +9,17 @@ import { LoginModal, SignUpModal } from "../../common/AuthModals";
 
 const slides = [
     {
-        image: "/images/Hero Image 1.png",
+        image: "/images/hero-image-1.png",
         title: "Lubricant Dealer & Brand Portal for Live Inventory Visibility",
         subtitle: "Update stock once to keep mapped brands informed in real-time. Track fulfilment status instantly and eliminate manual follow-ups.",
     },
     {
-        image: "/images/Hero Image 2.png",
+        image: "/images/hero-image-2.png",
         title: "Digitalized Oil & Lubricant Distribution Network",
         subtitle: "One platform to manage all your mapped brands. Get verified onboarding and role-based visibility for your entire operational team.",
     },
     {
-        image: "/images/Hero Image 3.png",
+        image: "/images/hero-image-3.png",
         title: "Scale Your Lubricant Business with Precision",
         subtitle: "Track inventory logs, action history, and fulfillment status in one unified dashboard. Designed for the modern Indian lubricant industry.",
     }
@@ -173,19 +173,7 @@ export default function Hero() {
                 </button>
             </div>
 
-            {/* Progress Indicators */}
-            <div className="absolute bottom-10 left-6 sm:left-10 z-30 flex gap-1.5">
-                {slides.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => { setIsAutoPlaying(false); setCurrentSlide(i); }}
-                        className={cn(
-                            "h-1 transition-all duration-300 rounded-none",
-                            currentSlide === i ? "w-8 bg-secondary" : "w-4 bg-white/20"
-                        )}
-                    />
-                ))}
-            </div>
+
 
             {/* Container Alignment helper class (optional but kept for structure) */}
             <div className="container mx-auto px-6 h-0 opacity-0 pointer-events-none" />
