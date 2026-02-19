@@ -92,7 +92,7 @@ export const LoginModal = ({ isOpen, onClose }: ModalProps) => {
                                                 ))}
                                             </div>
                                             <div className="flex justify-between items-center mt-2">
-                                                <span className="text-[11px] text-slate-400 font-bold">Didn't receive it?</span>
+                                                <span className="text-[11px] text-slate-400 font-bold">Didn&apos;t receive it?</span>
                                                 <button className="text-[11px] text-primary font-bold hover:underline uppercase tracking-wider">Resend OTP</button>
                                             </div>
                                         </div>

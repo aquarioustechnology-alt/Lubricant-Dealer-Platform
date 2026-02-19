@@ -36,7 +36,7 @@ const faqs = [
     }
 ];
 
-import { LoginModal, SignUpModal } from "../../common/AuthModals";
+import { SignUpModal } from "../../common/AuthModals";
 
 export default function FAQs() {
     // Make sure the first FAQ card is open by default
