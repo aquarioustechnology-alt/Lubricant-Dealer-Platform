@@ -1,15 +1,17 @@
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import Hero from "@/components/layout/Landing page/Hero";
+import ProofStrip from "@/components/layout/Landing page/Proof Strip";
 
 export default function Home() {
   return (
     <main className="relative">
       <Header />
       <Hero />
+      <ProofStrip />
 
       {/* Features Preview Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-32 bg-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-4">Precision Engineered Solutions</h2>
           <p className="text-muted max-w-2xl mx-auto mb-16">
@@ -31,8 +33,8 @@ export default function Home() {
                 desc: "A unified dashboard for managing orders, analytics, and customers."
               }
             ].map((feature, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-left hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg mb-6 flex items-center justify-center text-primary font-bold">
+              <div key={i} className="bg-white p-8 rounded-none border border-slate-100 text-left hover:shadow-xl transition-shadow transition-transform hover:-translate-y-1">
+                <div className="w-12 h-12 bg-blue-50 rounded-none mb-6 flex items-center justify-center text-primary font-bold">
                   0{i + 1}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
