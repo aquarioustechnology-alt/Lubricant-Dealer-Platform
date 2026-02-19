@@ -95,7 +95,7 @@ export default function BrandView() {
                                     src="/images/Hero Image 3.png"
                                     alt="Brand Visibility"
                                     fill
-                                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500" />
                             </div>

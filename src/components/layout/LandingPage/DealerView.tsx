@@ -87,22 +87,22 @@ export default function DealerView() {
                             className="relative grid grid-cols-2 gap-4 items-start"
                         >
                             {/* Left Image (Lower) */}
-                            <div className="relative aspect-[3/4] self-end mt-16 md:mt-24 shadow-2xl overflow-hidden">
+                            <div className="relative aspect-[3/4] self-end mt-16 md:mt-24 shadow-2xl overflow-hidden group">
                                 <Image
                                     src="/images/Hero Image 1.png"
                                     alt="Dealer Operations"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                             </div>
 
                             {/* Right Image (Higher) */}
-                            <div className="relative aspect-[3/4] shadow-2xl overflow-hidden">
+                            <div className="relative aspect-[3/4] shadow-2xl overflow-hidden group">
                                 <Image
                                     src="/images/Hero Image 3.png"
                                     alt="Detail view"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                             </div>
                         </motion.div>

@@ -70,7 +70,7 @@ export default function Header() {
                             alt="Lubricant Dealer Platform Logo"
                             width={180}
                             height={50}
-                            className="h-11 w-auto object-contain transition-all duration-300"
+                            className="h-11 w-auto object-contain transition-all duration-300 hover:scale-110"
                             priority
                         />
                     </div>

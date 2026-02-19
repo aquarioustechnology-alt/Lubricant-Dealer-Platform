@@ -37,6 +37,7 @@ const faqs = [
 ];
 
 export default function FAQs() {
+    // Make sure the first FAQ card is open by default
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (

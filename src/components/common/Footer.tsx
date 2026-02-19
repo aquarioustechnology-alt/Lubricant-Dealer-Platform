@@ -12,7 +12,7 @@ export default function Footer() {
                         alt="Lubricant Dealer Platform Logo"
                         width={150}
                         height={40}
-                        className="h-8 w-auto object-contain brightness-0 opacity-80"
+                        className="h-8 w-auto object-contain brightness-0 opacity-80 transition-all duration-300 hover:scale-110 hover:opacity-100"
                     />
                 </div>
                 <p className="text-sm text-muted">© {new Date().getFullYear()} Lubricant Dealer Platform. All rights reserved.</p>

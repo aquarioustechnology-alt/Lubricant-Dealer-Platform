@@ -76,7 +76,7 @@ const DealerDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
             {/* Top Navigation Bar - Premium Slim */}
             <div className="h-12 border-b border-slate-200 bg-white flex items-center justify-between px-4 shrink-0">
                 <div className="flex items-center gap-4">
-                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain" />
+                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain transition-transform duration-300 hover:scale-110" />
                     <div className="h-5 w-[1px] bg-slate-200" />
                     <span className="text-[11px] font-medium text-slate-500 tracking-tight whitespace-nowrap overflow-hidden">
                         Dealer Portal / <span className="text-slate-900 font-semibold">{dealerSteps[activeStep]?.title}</span>
@@ -390,7 +390,7 @@ const BrandDashboardSnippet = ({ activeStep }: { activeStep: number }) => {
             {/* Top Navigation Bar - Premium Slim White Theme */}
             <div className="h-12 border-b border-slate-200 bg-white flex items-center justify-between px-4 shrink-0">
                 <div className="flex items-center gap-4">
-                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain" />
+                    <Image src="/images/Logo.png" alt="Logo" width={90} height={24} className="object-contain transition-transform duration-300 hover:scale-110" />
                     <div className="h-5 w-[1px] bg-slate-200" />
                     <span className="text-[11px] font-medium text-slate-500 tracking-tight uppercase whitespace-nowrap">Brand Console / <span className="text-slate-900 font-bold">{brandSteps[activeStep]?.title}</span></span>
                 </div>
