@@ -25,6 +25,14 @@ const faqs = [
     {
         question: "Is my inventory data safe?",
         answer: "Yes. Access is controlled by role and mapping, and major actions like stock changes and assignment decisions are recorded with logs."
+    },
+    {
+        question: "Is training provided for my staff?",
+        answer: "Yes. We offer onboarding sessions for your inventory managers and sales teams to ensure they can use the dispatch and reporting features effectively from day one."
+    },
+    {
+        question: "Can I export my stock reports?",
+        answer: "Absolutely. All inventory lists and forecast data can be exported in standardized CSV or PDF formats for your offline audits and internal reviews."
     }
 ];
 
@@ -43,19 +51,18 @@ export default function FAQs() {
                     <div className="lg:col-span-5 space-y-12">
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-[3px] bg-primary" />
-                                <span className="text-primary font-bold uppercase tracking-[0.3em] text-[12px]">Support & Onboarding</span>
+                                <div className="w-12 h-[3px] bg-brand-red" />
+                                <span className="text-brand-red font-bold uppercase tracking-[0.3em] text-[12px]">FAQs</span>
                             </div>
                             <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
                                 Questions People Ask Before They Join
                             </h2>
-                            <p className="text-slate-500 text-lg leading-relaxed max-w-md font-medium">
+                            <p className="text-slate-500 text-lg leading-relaxed max-w-xl font-medium">
                                 Everything you need to know about setting up your workspace and managing lubricant distribution.
                             </p>
                         </div>
 
                         <div className="space-y-8 bg-slate-50 p-10 border-l-[6px] border-primary relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -mr-16 -mt-16 rounded-full group-hover:scale-110 transition-transform duration-700" />
 
                             <div className="space-y-6 relative z-10">
                                 <div className="flex items-center gap-5 group/item cursor-pointer">
@@ -105,7 +112,7 @@ export default function FAQs() {
                                 >
                                     <button
                                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                                        className="w-full px-8 py-7 flex items-center justify-between text-left group"
+                                        className="w-full px-8 py-5 flex items-center justify-between text-left group"
                                     >
                                         <span className={cn(
                                             "text-lg font-bold tracking-tight transition-colors duration-300 pr-8",
@@ -130,8 +137,8 @@ export default function FAQs() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                             >
-                                                <div className="px-8 pb-8">
-                                                    <div className="h-[1px] w-full bg-slate-100 mb-7" />
+                                                <div className="px-8 pb-5">
+                                                    <div className="h-[1px] w-full bg-slate-100 mb-4" />
                                                     <p className="text-slate-600 leading-relaxed font-medium text-[15px]">
                                                         {faq.answer}
                                                     </p>
