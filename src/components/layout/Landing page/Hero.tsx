@@ -1,86 +1,172 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Award } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+const slides = [
+    {
+        image: "/images/Hero Image 1.png",
+        title: "Lubricant Dealer and Brand Portal for Live Inventory Visibility in India",
+        subtitle: "DEALER helps lubricant dealers update stock once and keeps mapped brands informed in real time. Reduce stock calls, avoid confusion, and keep fulfilment updates clear with Ready and Dispatched status tracking.",
+    },
+    {
+        image: "/images/Hero Image 2.png",
+        title: "Digitalized Oil & Lubricant Distribution Network",
+        subtitle: "One platform to manage all your mapped brands. Get verified onboarding and role-based visibility for your entire operational team.",
+    },
+    {
+        image: "/images/Hero Image 3.png",
+        title: "Scale Your Lubricant Business with Precision",
+        subtitle: "Track inventory logs, action history, and fulfillment status in one unified dashboard. Designed for the modern Indian lubricant industry.",
+    }
+];
 
 export default function Hero() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 6000);
+        return () => clearInterval(timer);
+    }, [isAutoPlaying]);
+
+    const nextSlide = () => {
+        setIsAutoPlaying(false);
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+    };
+
+    const prevSlide = () => {
+        setIsAutoPlaying(false);
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    };
+
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-20">
-            {/* Abstract Background Elements */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-50 rounded-full blur-[120px] opacity-60" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-50 rounded-full blur-[120px] opacity-60" />
-            </div>
-
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="relative h-screen w-full overflow-hidden bg-slate-900">
+            {/* Slides */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={currentSlide}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="absolute inset-0"
+                >
+                    {/* Background Image with Zoom Effect */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 6, ease: "linear" }}
+                        className="absolute inset-0"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-primary text-sm font-semibold mb-6">
-                            <Zap className="w-4 h-4 fill-primary" />
-                            <span>Next Generation Lubricant Solutions</span>
-                        </div>
-
-                        <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                            Precision <span className="gradient-text">Performance</span> for Industrial Excellence
-                        </h1>
-
-                        <p className="text-lg text-muted mb-8 max-w-xl">
-                            Empowering dealers with high-grade industrial lubricants, engineered for durability and peak efficiency. Join the platform that redefines lubricant distribution.
-                        </p>
-
-                        <div className="flex flex-wrap gap-4">
-                            <button className="btn-primary flex items-center gap-2">
-                                Become a Dealer <ArrowRight className="w-5 h-5" />
-                            </button>
-                            <button className="px-6 py-3 rounded-xl border-2 border-slate-200 font-bold hover:bg-slate-50 transition-all">
-                                Explore Products
-                            </button>
-                        </div>
-
-                        <div className="mt-12 grid grid-cols-3 gap-6">
-                            {[
-                                { icon: ShieldCheck, label: "Certified Grade" },
-                                { icon: Award, label: "Top Quality" },
-                                { icon: Zap, label: "Fast Delivery" },
-                            ].map((item, i) => (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <item.icon className="w-6 h-6 text-secondary" />
-                                    <span className="text-sm font-bold text-slate-600 uppercase tracking-wider">{item.label}</span>
-                                </div>
-                            ))}
-                        </div>
+                        <Image
+                            src={slides[currentSlide].image}
+                            alt="Industrial Hero Background"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-black/60" /> {/* Dark Overlay */}
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="relative"
-                    >
-                        <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white animate-float">
-                            {/* Since I can't generate an image, I'll use a stylized div representing a product */}
-                            <div className="aspect-[4/5] bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-950 flex items-center justify-center p-12">
-                                <div className="relative w-full h-full border-2 border-white/20 rounded-2xl flex flex-col items-center justify-center text-center p-8">
-                                    <div className="w-24 h-40 bg-gradient-to-b from-orange-400 to-orange-600 rounded-lg shadow-2xl mb-8 relative">
-                                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-2 bg-black/20 rounded" />
-                                        <div className="absolute inset-x-2 bottom-4 top-10 border border-white/30 rounded flex items-center justify-center">
-                                            <span className="text-white font-black text-2xl tracking-tighter">LP</span>
+                    {/* Content Container */}
+                    <div className="relative h-full flex items-center pt-20">
+                        <div className="container mx-auto px-6">
+                            <div className="max-w-4xl">
+                                {/* Trust Line */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2, duration: 0.8 }}
+                                    className="flex flex-wrap gap-4 mb-8"
+                                >
+                                    {[
+                                        "Verified onboarding",
+                                        "Role-based visibility",
+                                        "Inventory and action logs"
+                                    ].map((text, i) => (
+                                        <div key={i} className="flex items-center gap-2 text-white/80">
+                                            <CheckCircle2 className="w-4 h-4 text-secondary" />
+                                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">{text}</span>
                                         </div>
-                                    </div>
-                                    <h3 className="text-3xl font-bold text-white mb-2">ULTRA-DRIVE 5000</h3>
-                                    <p className="text-blue-200 text-sm">Synthetic Industrial Lubricant</p>
-                                </div>
+                                    ))}
+                                </motion.div>
+
+                                {/* Main Heading */}
+                                <motion.h1
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4, duration: 0.8 }}
+                                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1]"
+                                >
+                                    {slides[currentSlide].title}
+                                </motion.h1>
+
+                                {/* Sub Content */}
+                                <motion.p
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.6, duration: 0.8 }}
+                                    className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-medium max-w-3xl"
+                                >
+                                    {slides[currentSlide].subtitle}
+                                </motion.p>
+
+                                {/* CTAs */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.8, duration: 0.8 }}
+                                    className="flex flex-wrap gap-5"
+                                >
+                                    <button className="btn-secondary group flex items-center gap-3 !px-8 !py-4 transition-all hover:bg-white hover:text-black">
+                                        <span className="text-sm font-black uppercase tracking-widest text-inherit">Start Now</span>
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                    <button className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-black hover:border-white transition-all">
+                                        See Dealer Benefits
+                                    </button>
+                                </motion.div>
                             </div>
                         </div>
-                        {/* Decorative circles */}
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-pulse" />
-                        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
-                    </motion.div>
-                </div>
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+
+            {/* Slider Controls */}
+            <div className="absolute right-10 bottom-10 z-20 flex gap-4">
+                <button
+                    onClick={prevSlide}
+                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all group"
+                >
+                    <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                </button>
+                <button
+                    onClick={nextSlide}
+                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all group"
+                >
+                    <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                </button>
+            </div>
+
+            {/* Progress Indicators */}
+            <div className="absolute bottom-10 left-10 z-20 flex gap-2">
+                {slides.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => { setIsAutoPlaying(false); setCurrentSlide(i); }}
+                        className={cn(
+                            "h-1 transition-all duration-300 rounded-full",
+                            currentSlide === i ? "w-10 bg-secondary" : "w-6 bg-white/20"
+                        )}
+                    />
+                ))}
             </div>
         </section>
     );
