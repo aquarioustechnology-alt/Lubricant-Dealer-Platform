@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Zap, Award } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export default function Hero() {
     return (
