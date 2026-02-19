@@ -10,7 +10,7 @@ import { LoginModal, SignUpModal } from "../../common/AuthModals";
 const slides = [
     {
         image: "/images/hero-image-1.png",
-        title: "Lubricant Dealer & Brand Portal for Live Inventory Visibility",
+        title: "Live Inventory Portal for Lubricant Dealers & Brands",
         subtitle: "Update stock once to keep mapped brands informed in real-time. Track fulfilment status instantly and eliminate manual follow-ups.",
     },
     {
@@ -35,7 +35,7 @@ export default function Hero() {
         if (!isAutoPlaying) return;
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 8000); // Reduced speed (from 6000 to 8000)
+        }, 12000); // Further reduced speed (from 8000 to 12000)
         return () => clearInterval(timer);
     }, [isAutoPlaying]);
 
@@ -82,8 +82,8 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Content Container - Matching Header container */}
-                    <div className="relative h-full flex items-center pt-16 lg:pt-20">
-                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+                    <div className="relative h-full flex items-center">
+                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full -mt-20 lg:-mt-28">
                             <div className="max-w-4xl">
                                 {/* Trust Line */}
                                 <motion.div
@@ -109,7 +109,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4, duration: 0.8 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-[1.15]"
+                                    className="text-[28px] md:text-[46px] lg:text-[58px] font-medium text-white mb-6 leading-[1.15] tracking-[-0.015em]"
                                 >
                                     {slides[currentSlide].title}
                                 </motion.h1>
@@ -158,7 +158,7 @@ export default function Hero() {
             <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
 
             {/* Slider Controls - Square Sharp Edges */}
-            <div className="absolute right-6 sm:right-10 bottom-10 z-30 flex gap-2">
+            <div className="absolute right-6 sm:right-10 bottom-[18%] z-30 flex gap-2">
                 <button
                     onClick={prevSlide}
                     className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
