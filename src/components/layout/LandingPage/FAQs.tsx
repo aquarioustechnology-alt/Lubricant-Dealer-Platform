@@ -123,7 +123,7 @@ export default function FAQs() {
                                         <div className={cn(
                                             "w-10 h-10 shrink-0 flex items-center justify-center border transition-all duration-500",
                                             isOpen
-                                                ? "bg-primary border-primary text-white rotate-180 shadow-[0_5px_15px_rgba(0,102,178,0.3)]"
+                                                ? "bg-primary border-primary text-white rotate-180"
                                                 : "border-slate-200 text-slate-400 group-hover:border-primary group-hover:text-primary"
                                         )}>
                                             {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
