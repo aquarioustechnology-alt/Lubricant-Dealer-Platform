@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -18,10 +19,12 @@ const benefits = [
         desc: "Logs keep your entries clean and trackable."
     }
 ];
+import { LoginModal } from "../../common/AuthModals";
 
 export default function DealerView() {
+    const [loginOpen, setLoginOpen] = useState(false);
     return (
-        <section className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
+        <section id="dealer-benefits" className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Content Side */}
@@ -65,7 +68,10 @@ export default function DealerView() {
 
                             {/* Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <button className="btn-fill-primary">
+                                <button
+                                    onClick={() => setLoginOpen(true)}
+                                    className="btn-fill-primary"
+                                >
                                     <span className="relative z-10 flex items-center gap-3 font-semibold">
                                         Dealer Login <ArrowRight className="w-5 h-5" />
                                     </span>
@@ -109,6 +115,7 @@ export default function DealerView() {
                     </div>
                 </div>
             </div>
+            <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
         </section>
     );
 }

@@ -706,7 +706,7 @@ export default function DashboardSteps() {
     };
 
     return (
-        <section className="py-[120px] bg-primary text-white overflow-hidden relative">
+        <section id="how-it-works" className="py-[120px] bg-primary text-white overflow-hidden relative">
             {/* Visual Branded Accents */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
 

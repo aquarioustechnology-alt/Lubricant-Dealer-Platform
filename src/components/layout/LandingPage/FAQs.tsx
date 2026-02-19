@@ -36,9 +36,12 @@ const faqs = [
     }
 ];
 
+import { LoginModal, SignUpModal } from "../../common/AuthModals";
+
 export default function FAQs() {
     // Make sure the first FAQ card is open by default
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [signUpOpen, setSignUpOpen] = useState(false);
 
     return (
         <section className="py-32 bg-white overflow-hidden relative" id="faqs">
@@ -88,7 +91,10 @@ export default function FAQs() {
                             </div>
 
                             <div className="pt-4 relative z-10">
-                                <button className="btn-fill-primary w-full group py-4">
+                                <button
+                                    onClick={() => setSignUpOpen(true)}
+                                    className="btn-fill-primary w-full group py-4"
+                                >
                                     <span className="relative z-10 flex items-center justify-center gap-3 font-bold tracking-widest text-[12px]">
                                         JOIN WITH US <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                     </span>
@@ -153,6 +159,8 @@ export default function FAQs() {
                     </div>
                 </div>
             </div>
+
+            <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
         </section>
     );
 }

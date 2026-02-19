@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { LoginModal, SignUpModal } from "../../common/AuthModals";
 
 const slides = [
     {
@@ -27,6 +28,8 @@ const slides = [
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [signUpOpen, setSignUpOpen] = useState(false);
 
     useEffect(() => {
         if (!isAutoPlaying) return;
@@ -47,7 +50,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-[600px] h-[90vh] lg:h-[90vh] w-full overflow-hidden bg-slate-900 border-b border-slate-100/10">
+        <section id="hero" className="relative min-h-[600px] h-[90vh] lg:h-[90vh] w-full overflow-hidden bg-slate-900 border-b border-slate-100/10">
             {/* Subtle top gradient for header visibility */}
             <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/60 to-transparent z-20 pointer-events-none" />
 
@@ -128,14 +131,20 @@ export default function Hero() {
                                     transition={{ delay: 0.8, duration: 0.8 }}
                                     className="flex flex-wrap gap-4"
                                 >
-                                    <button className="btn-fill-secondary">
+                                    <button
+                                        onClick={() => setSignUpOpen(true)}
+                                        className="btn-fill-secondary"
+                                    >
                                         <span className="relative z-10 flex items-center gap-3 font-semibold">
                                             Start Now <ArrowRight className="w-5 h-5" />
                                         </span>
                                     </button>
 
-                                    <button className="btn-outline-white">
-                                        <span className="relative z-10 font-semibold">See Dealer Benefits</span>
+                                    <button
+                                        onClick={() => setLoginOpen(true)}
+                                        className="btn-outline-white"
+                                    >
+                                        <span className="relative z-10 font-semibold">Portal Login</span>
                                     </button>
                                 </motion.div>
                             </div>
@@ -143,6 +152,10 @@ export default function Hero() {
                     </div>
                 </motion.div>
             </AnimatePresence>
+
+            {/* Modals */}
+            <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
+            <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
 
             {/* Slider Controls - Square Sharp Edges */}
             <div className="absolute right-6 sm:right-10 bottom-10 z-30 flex gap-2">

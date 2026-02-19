@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { LoginModal } from "../../common/AuthModals";
 
 const benefits = [
     {
@@ -20,8 +22,9 @@ const benefits = [
 ];
 
 export default function BrandView() {
+    const [loginOpen, setLoginOpen] = useState(false);
     return (
-        <section className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
+        <section id="brand-benefits" className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-32">
                     {/* Right Content Side */}
@@ -65,7 +68,10 @@ export default function BrandView() {
 
                             {/* Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <button className="btn-fill-primary">
+                                <button
+                                    onClick={() => setLoginOpen(true)}
+                                    className="btn-fill-primary"
+                                >
                                     <span className="relative z-10 flex items-center gap-3 font-semibold">
                                         Brand Login <ArrowRight className="w-5 h-5" />
                                     </span>
@@ -135,6 +141,7 @@ export default function BrandView() {
                     </div>
                 </div>
             </div>
+            <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
         </section>
     );
 }

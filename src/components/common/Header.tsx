@@ -6,9 +6,13 @@ import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Globe } from
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
+import { LoginModal, SignUpModal } from "./AuthModals";
+
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [signUpOpen, setSignUpOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -17,13 +21,17 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { name: "Features", href: "#" },
-        { name: "Dealer Benefits", href: "#" },
-        { name: "Brand Benefits", href: "#" },
-        { name: "How It Works", href: "#" },
-        { name: "FAQs", href: "#" },
+        { name: "Features", href: "#features" },
+        { name: "Dealer Benefits", href: "#dealer-benefits" },
+        { name: "Brand Benefits", href: "#brand-benefits" },
+        { name: "How It Works", href: "#how-it-works" },
+        { name: "FAQs", href: "#faqs" },
         { name: "Contact Us", href: "#" },
     ];
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <header className="fixed top-0 inset-x-0 z-50">
@@ -64,7 +72,7 @@ export default function Header() {
                 )}
             >
                 <div className="container mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={scrollToTop}>
                         <Image
                             src={scrolled ? "/images/Logo.png" : "/images/New White based logo.png"}
                             alt="Lubricant Dealer Platform Logo"
@@ -90,13 +98,16 @@ export default function Header() {
                             </a>
                         ))}
                         <div className="flex items-center gap-3 ml-4">
-                            {/* Login Button with animation */}
-                            <button className={cn(
-                                "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border",
-                                scrolled
-                                    ? "text-primary border-primary bg-white hover:text-white btn-nav-scroll-login"
-                                    : "text-white border-white bg-transparent hover:text-black btn-nav-hero-login"
-                            )}>
+                            {/* Login Button */}
+                            <button
+                                onClick={() => setLoginOpen(true)}
+                                className={cn(
+                                    "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border",
+                                    scrolled
+                                        ? "text-primary border-primary bg-white hover:text-white btn-nav-scroll-login"
+                                        : "text-white border-white bg-transparent hover:text-black btn-nav-hero-login"
+                                )}
+                            >
                                 <span className="relative z-20">Login</span>
                                 <div className={cn(
                                     "absolute top-0 left-0 w-0 h-full transition-all duration-500 -z-10",
@@ -104,11 +115,14 @@ export default function Header() {
                                 )} style={{ width: '0%', transition: 'width 0.5s ease' }} id="login-bg" />
                             </button>
 
-                            {/* Sign Up Button with animation */}
-                            <button className={cn(
-                                "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border border-secondary bg-secondary text-white",
-                                "hover:text-secondary group"
-                            )}>
+                            {/* Sign Up Button */}
+                            <button
+                                onClick={() => setSignUpOpen(true)}
+                                className={cn(
+                                    "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border border-secondary bg-secondary text-white",
+                                    "hover:text-secondary group"
+                                )}
+                            >
                                 <span className="relative z-20">Sign Up</span>
                                 <div className="absolute top-0 left-0 w-0 h-full bg-white transition-all duration-500 -z-10 group-hover:w-full" />
                             </button>
@@ -149,10 +163,16 @@ export default function Header() {
                                 ))}
                                 <hr className="border-slate-100" />
                                 <div className="grid grid-cols-2 gap-4">
-                                    <button className="bg-primary text-white py-3 font-semibold text-[11px] uppercase tracking-widest">
+                                    <button
+                                        onClick={() => { setLoginOpen(true); setMobileMenuOpen(false); }}
+                                        className="bg-primary text-white py-3 font-semibold text-[11px] uppercase tracking-widest"
+                                    >
                                         Login
                                     </button>
-                                    <button className="bg-secondary text-white py-3 font-semibold text-[11px] uppercase tracking-widest">
+                                    <button
+                                        onClick={() => { setSignUpOpen(true); setMobileMenuOpen(false); }}
+                                        className="bg-secondary text-white py-3 font-semibold text-[11px] uppercase tracking-widest"
+                                    >
                                         Sign Up
                                     </button>
                                 </div>
@@ -161,6 +181,11 @@ export default function Header() {
                     )}
                 </AnimatePresence>
             </nav>
+
+            {/* Modals */}
+            <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
+            <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
+
 
             <style jsx>{`
                 button:hover #login-bg { width: 100% !important; }
