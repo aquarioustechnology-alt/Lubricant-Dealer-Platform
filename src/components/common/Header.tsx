@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Droplets } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export default function Header() {
@@ -31,12 +32,14 @@ export default function Header() {
         >
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30">
-                        <Droplets className="text-white w-6 h-6" />
-                    </div>
-                    <span className="text-2xl font-black tracking-tighter text-slate-900">
-                        LUBE<span className="text-primary">PLATFORM</span>
-                    </span>
+                    <Image
+                        src="/images/Logo.png"
+                        alt="Lubricant Dealer Platform Logo"
+                        width={180}
+                        height={50}
+                        className="h-10 w-auto object-contain"
+                        priority
+                    />
                 </div>
 
                 {/* Desktop Links */}

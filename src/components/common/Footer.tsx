@@ -1,18 +1,19 @@
 "use client";
 
-import { Droplets } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
     return (
         <footer className="py-12 bg-white border-t">
             <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                        <Droplets className="text-white w-5 h-5 opacity-20" />
-                    </div>
-                    <span className="text-xl font-black tracking-tighter text-slate-900">
-                        LUBE<span className="text-primary">PLATFORM</span>
-                    </span>
+                    <Image
+                        src="/images/Logo.png"
+                        alt="Lubricant Dealer Platform Logo"
+                        width={150}
+                        height={40}
+                        className="h-8 w-auto object-contain brightness-0 opacity-80"
+                    />
                 </div>
                 <p className="text-sm text-muted">© {new Date().getFullYear()} Lubricant Dealer Platform. All rights reserved.</p>
                 <div className="flex gap-6">
