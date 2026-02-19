@@ -27,31 +27,31 @@ export default function Header() {
 
     return (
         <header className="fixed top-0 inset-x-0 z-50">
-            {/* Top Bar - Similar to Nortech */}
+            {/* Top Bar - Brand Blue Background */}
             <div className={cn(
-                "hidden lg:block bg-[#1a1a1a] text-white py-2 px-6 transition-all duration-300",
+                "hidden lg:block bg-primary text-white py-2 px-6 transition-all duration-300",
                 scrolled ? "h-0 opacity-0 overflow-hidden py-0" : "h-auto opacity-100"
             )}>
-                <div className="container mx-auto flex justify-between items-center text-[11px] font-bold uppercase tracking-widest">
+                <div className="container mx-auto flex justify-between items-center text-[11px] font-semibold uppercase tracking-widest">
                     <div className="flex gap-6 items-center">
                         <div className="flex items-center gap-2">
-                            <Phone className="w-3.5 h-3.5 text-secondary" />
+                            <Phone className="w-3.5 h-3.5" />
                             <span>+91 1800 123 4567</span>
                         </div>
-                        <div className="flex items-center gap-2 border-l border-white/10 pl-6">
-                            <Mail className="w-3.5 h-3.5 text-secondary" />
+                        <div className="flex items-center gap-2 border-l border-white/20 pl-6">
+                            <Mail className="w-3.5 h-3.5" />
                             <span>info@lubeplatform.in</span>
                         </div>
-                        <div className="flex items-center gap-2 border-l border-white/10 pl-6">
-                            <MapPin className="w-3.5 h-3.5 text-secondary" />
+                        <div className="flex items-center gap-2 border-l border-white/20 pl-6">
+                            <MapPin className="w-3.5 h-3.5" />
                             <span>Kolkata, India</span>
                         </div>
                     </div>
                     <div className="flex gap-4 items-center">
-                        <Facebook className="w-3.5 h-3.5 cursor-pointer hover:text-secondary transition-colors" />
-                        <Twitter className="w-3.5 h-3.5 cursor-pointer hover:text-secondary transition-colors" />
-                        <Linkedin className="w-3.5 h-3.5 cursor-pointer hover:text-secondary transition-colors" />
-                        <Globe className="w-3.5 h-3.5 cursor-pointer hover:text-secondary transition-colors" />
+                        <Facebook className="w-3.5 h-3.5 cursor-pointer hover:opacity-70 transition-opacity" />
+                        <Twitter className="w-3.5 h-3.5 cursor-pointer hover:opacity-70 transition-opacity" />
+                        <Linkedin className="w-3.5 h-3.5 cursor-pointer hover:opacity-70 transition-opacity" />
+                        <Globe className="w-3.5 h-3.5 cursor-pointer hover:opacity-70 transition-opacity" />
                     </div>
                 </div>
             </div>
@@ -60,20 +60,17 @@ export default function Header() {
             <nav
                 className={cn(
                     "transition-all duration-300 px-6 py-4",
-                    scrolled ? "bg-white shadow-md py-3" : "bg-white/95 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none"
+                    scrolled ? "bg-white shadow-md py-3" : "bg-transparent"
                 )}
             >
                 <div className="container mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <Image
-                            src="/images/Logo.png"
+                            src={scrolled ? "/images/Logo.png" : "/images/New White based logo.png"}
                             alt="Lubricant Dealer Platform Logo"
                             width={180}
                             height={50}
-                            className={cn(
-                                "h-11 w-auto object-contain transition-all duration-300",
-                                !scrolled && "lg:brightness-0 lg:invert" // White logo on transparent hero
-                            )}
+                            className="h-11 w-auto object-contain transition-all duration-300"
                             priority
                         />
                     </div>
@@ -85,22 +82,35 @@ export default function Header() {
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-[12px] font-extrabold uppercase tracking-widest transition-colors",
-                                    scrolled ? "text-slate-800 hover:text-primary" : "text-white/90 hover:text-white"
+                                    "text-[12px] font-semibold uppercase tracking-widest transition-colors",
+                                    scrolled ? "text-[#000000] hover:text-primary" : "text-white/95 hover:text-white"
                                 )}
                             >
                                 {link.name}
                             </a>
                         ))}
                         <div className="flex items-center gap-3 ml-4">
+                            {/* Login Button with animation */}
                             <button className={cn(
-                                "text-[12px] font-extrabold uppercase tracking-widest px-4 py-2 transition-colors",
-                                scrolled ? "text-primary border border-primary/20 rounded-lg hover:bg-primary/5" : "text-white hover:text-secondary"
+                                "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border",
+                                scrolled
+                                    ? "text-primary border-primary bg-white hover:text-white btn-nav-scroll-login"
+                                    : "text-white border-white bg-transparent hover:text-black btn-nav-hero-login"
                             )}>
-                                Login
+                                <span className="relative z-20">Login</span>
+                                <div className={cn(
+                                    "absolute top-0 left-0 w-0 h-full transition-all duration-500 -z-10",
+                                    scrolled ? "bg-primary" : "bg-white"
+                                )} style={{ width: '0%', transition: 'width 0.5s ease' }} id="login-bg" />
                             </button>
-                            <button className="bg-secondary text-white px-6 py-2.5 rounded-lg font-extrabold text-[12px] uppercase tracking-widest shadow-lg shadow-secondary/20 hover:scale-105 transition-transform">
-                                Sign Up
+
+                            {/* Sign Up Button with animation */}
+                            <button className={cn(
+                                "relative overflow-hidden inline-flex items-center justify-center px-6 py-2 font-semibold uppercase tracking-widest text-[11px] transition-all duration-500 z-10 border border-secondary bg-secondary text-white",
+                                "hover:text-secondary group"
+                            )}>
+                                <span className="relative z-20">Sign Up</span>
+                                <div className="absolute top-0 left-0 w-0 h-full bg-white transition-all duration-500 -z-10 group-hover:w-full" />
                             </button>
                         </div>
                     </div>
@@ -131,7 +141,7 @@ export default function Header() {
                                     <a
                                         key={link.name}
                                         href={link.href}
-                                        className="text-sm font-extrabold text-slate-900 uppercase tracking-widest hover:text-primary"
+                                        className="text-sm font-semibold text-slate-900 uppercase tracking-widest hover:text-primary transition-colors"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {link.name}
@@ -139,10 +149,10 @@ export default function Header() {
                                 ))}
                                 <hr className="border-slate-100" />
                                 <div className="grid grid-cols-2 gap-4">
-                                    <button className="bg-slate-50 text-primary py-3 rounded-xl font-extrabold text-[12px] uppercase tracking-widest border border-slate-200">
+                                    <button className="bg-primary text-white py-3 font-semibold text-[11px] uppercase tracking-widest">
                                         Login
                                     </button>
-                                    <button className="bg-secondary text-white py-3 rounded-xl font-extrabold text-[12px] uppercase tracking-widest shadow-lg shadow-secondary/20">
+                                    <button className="bg-secondary text-white py-3 font-semibold text-[11px] uppercase tracking-widest">
                                         Sign Up
                                     </button>
                                 </div>
@@ -151,6 +161,12 @@ export default function Header() {
                     )}
                 </AnimatePresence>
             </nav>
+
+            <style jsx>{`
+                button:hover #login-bg { width: 100% !important; }
+                .btn-nav-hero-login:hover { color: #000 !important; }
+                .btn-nav-scroll-login:hover { color: #fff !important; }
+            `}</style>
         </header>
     );
 }

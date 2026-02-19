@@ -32,7 +32,7 @@ export default function Hero() {
         if (!isAutoPlaying) return;
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 6000);
+        }, 8000); // Reduced speed (from 6000 to 8000)
         return () => clearInterval(timer);
     }, [isAutoPlaying]);
 
@@ -47,7 +47,10 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-slate-900">
+        <section className="relative min-h-[600px] h-[90vh] lg:h-[90vh] w-full overflow-hidden bg-slate-900 border-b border-slate-100/10">
+            {/* Subtle top gradient for header visibility */}
+            <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/60 to-transparent z-20 pointer-events-none" />
+
             {/* Slides */}
             <AnimatePresence mode="wait">
                 <motion.div
@@ -62,7 +65,7 @@ export default function Hero() {
                     <motion.div
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
-                        transition={{ duration: 6, ease: "linear" }}
+                        transition={{ duration: 8, ease: "linear" }}
                         className="absolute inset-0"
                     >
                         <Image
@@ -72,28 +75,28 @@ export default function Hero() {
                             className="object-cover"
                             priority
                         />
-                        <div className="absolute inset-0 bg-black/60" /> {/* Dark Overlay */}
+                        <div className="absolute inset-0 bg-black/40" /> {/* Slightly reduced overlay from 45 to 40 */}
                     </motion.div>
 
-                    {/* Content Container */}
-                    <div className="relative h-full flex items-center pt-20">
-                        <div className="container mx-auto px-6">
+                    {/* Content Container - Matching Header container */}
+                    <div className="relative h-full flex items-center pt-24 lg:pt-32">
+                        <div className="container mx-auto px-6 w-full">
                             <div className="max-w-4xl">
                                 {/* Trust Line */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2, duration: 0.8 }}
-                                    className="flex flex-wrap gap-4 mb-8"
+                                    className="flex flex-wrap gap-4 mb-6"
                                 >
                                     {[
                                         "Verified onboarding",
                                         "Role-based visibility",
                                         "Inventory and action logs"
                                     ].map((text, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-white/80">
-                                            <CheckCircle2 className="w-4 h-4 text-secondary" />
-                                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">{text}</span>
+                                        <div key={i} className="flex items-center gap-2 text-white/95">
+                                            <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
+                                            <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em]">{text}</span>
                                         </div>
                                     ))}
                                 </motion.div>
@@ -103,7 +106,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4, duration: 0.8 }}
-                                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1]"
+                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15]"
                                 >
                                     {slides[currentSlide].title}
                                 </motion.h1>
@@ -113,7 +116,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.8 }}
-                                    className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-medium max-w-3xl"
+                                    className="text-base md:text-lg text-white/90 mb-8 leading-relaxed font-semibold max-w-3xl"
                                 >
                                     {slides[currentSlide].subtitle}
                                 </motion.p>
@@ -123,14 +126,16 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.8, duration: 0.8 }}
-                                    className="flex flex-wrap gap-5"
+                                    className="flex flex-wrap gap-4"
                                 >
-                                    <button className="btn-secondary group flex items-center gap-3 !px-8 !py-4 transition-all hover:bg-white hover:text-black">
-                                        <span className="text-sm font-black uppercase tracking-widest text-inherit">Start Now</span>
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <button className="btn-fill-secondary">
+                                        <span className="relative z-10 flex items-center gap-3 font-semibold">
+                                            Start Now <ArrowRight className="w-5 h-5" />
+                                        </span>
                                     </button>
-                                    <button className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-black hover:border-white transition-all">
-                                        See Dealer Benefits
+
+                                    <button className="btn-outline-white">
+                                        <span className="relative z-10 font-semibold">See Dealer Benefits</span>
                                     </button>
                                 </motion.div>
                             </div>
@@ -139,35 +144,38 @@ export default function Hero() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Slider Controls */}
-            <div className="absolute right-10 bottom-10 z-20 flex gap-4">
+            {/* Slider Controls - Square Sharp Edges */}
+            <div className="absolute right-6 sm:right-10 bottom-10 z-30 flex gap-2">
                 <button
                     onClick={prevSlide}
-                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all group"
+                    className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
                 >
-                    <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all group"
+                    className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
                 >
-                    <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <ChevronRight className="w-6 h-6" />
                 </button>
             </div>
 
             {/* Progress Indicators */}
-            <div className="absolute bottom-10 left-10 z-20 flex gap-2">
+            <div className="absolute bottom-10 left-6 sm:left-10 z-30 flex gap-1.5">
                 {slides.map((_, i) => (
                     <button
                         key={i}
                         onClick={() => { setIsAutoPlaying(false); setCurrentSlide(i); }}
                         className={cn(
-                            "h-1 transition-all duration-300 rounded-full",
-                            currentSlide === i ? "w-10 bg-secondary" : "w-6 bg-white/20"
+                            "h-1 transition-all duration-300 rounded-none",
+                            currentSlide === i ? "w-8 bg-secondary" : "w-4 bg-white/20"
                         )}
                     />
                 ))}
             </div>
+
+            {/* Container Alignment helper class (optional but kept for structure) */}
+            <div className="container mx-auto px-6 h-0 opacity-0 pointer-events-none" />
         </section>
     );
 }

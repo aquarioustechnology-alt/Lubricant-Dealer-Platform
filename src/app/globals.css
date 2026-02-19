@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --primary: #1F83E0;
+  --primary: #0066B2;
   /* Brand Blue */
-  --secondary: #DF8B28;
+  --secondary: #E08D27;
   /* Brand Orange */
-  --accent-red: #CC1414;
+  --accent-red: #CC1513;
   /* Brand Red */
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -32,76 +32,111 @@
   h4,
   h5,
   h6 {
-    letter-spacing: -0.02em;
-    font-weight: 900;
+    letter-spacing: -0.01em;
+    font-weight: 700;
   }
 }
 
 @layer components {
-  .glass {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow-lg);
+
+  /* Sharp edge button with left-to-right fill animation */
+  .btn-premium {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+    transition: all 0.5s;
+    z-index: 10;
+    border-radius: 0;
+    /* Sharp edges */
   }
 
-  .btn-primary {
+  .btn-fill-primary {
+    @apply btn-premium;
+    border: 1px solid var(--primary);
     background-color: var(--primary);
-    color: #ffffff;
-    padding: 0.9rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
-    letter-spacing: 0.05em;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(31, 131, 224, 0.3);
-  }
-
-  .btn-primary:active {
-    transform: translateY(0px);
-  }
-
-  .btn-secondary {
-    background-color: var(--secondary);
-    color: #ffffff;
-    padding: 0.9rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
-    letter-spacing: 0.05em;
-  }
-
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(223, 139, 40, 0.3);
-  }
-
-  .btn-secondary:active {
-    transform: translateY(0px);
-  }
-
-  .btn-outline {
-    border: 2px solid rgba(255, 255, 255, 0.3);
     color: white;
-    padding: 0.9rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 0.05em;
   }
 
-  .btn-outline:hover {
+  .btn-fill-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
     background-color: white;
-    color: #1a1a1a;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .btn-fill-primary:hover {
+    color: var(--primary);
+  }
+
+  .btn-fill-primary:hover::before {
+    width: 100%;
+  }
+
+  .btn-fill-secondary {
+    @apply btn-premium;
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: white;
+  }
+
+  .btn-fill-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .btn-fill-secondary:hover {
+    color: var(--secondary);
+  }
+
+  .btn-fill-secondary:hover::before {
+    width: 100%;
+  }
+
+  .btn-outline-white {
+    @apply btn-premium;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    color: white;
+  }
+
+  .btn-outline-white::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .btn-outline-white:hover {
+    color: black;
     border-color: white;
+  }
+
+  .btn-outline-white:hover::before {
+    width: 100%;
   }
 }
 
@@ -128,15 +163,4 @@
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, var(--primary), var(--secondary));
-}
-
-.image-overlay {
-  position: relative;
-}
-
-.image-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
 }
