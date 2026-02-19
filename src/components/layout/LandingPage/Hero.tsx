@@ -82,8 +82,8 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Content Container - Matching Header container */}
-                    <div className="relative h-full flex items-center">
-                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full -mt-20 lg:-mt-28">
+                    <div className="relative h-full flex items-center pt-16 lg:pt-20">
+                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full">
                             <div className="max-w-4xl">
                                 {/* Trust Line */}
                                 <motion.div
@@ -158,7 +158,7 @@ export default function Hero() {
             <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
 
             {/* Slider Controls - Square Sharp Edges */}
-            <div className="absolute right-6 sm:right-10 bottom-[18%] z-30 flex gap-2">
+            <div className="absolute right-6 sm:right-10 bottom-10 z-30 flex gap-2">
                 <button
                     onClick={prevSlide}
                     className="w-12 h-12 md:w-14 md:h-14 border border-white/20 flex items-center justify-center text-white hover:bg-secondary hover:border-secondary transition-all rounded-none"
