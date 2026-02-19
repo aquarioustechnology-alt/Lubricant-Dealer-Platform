@@ -17,10 +17,10 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { name: "Why DEALER", href: "#" },
+        { name: "Features", href: "#" },
         { name: "Dealer Benefits", href: "#" },
         { name: "Brand Benefits", href: "#" },
-        { name: "Portal Preview", href: "#" },
+        { name: "How It Works", href: "#" },
         { name: "FAQs", href: "#" },
         { name: "Contact Us", href: "#" },
     ];
