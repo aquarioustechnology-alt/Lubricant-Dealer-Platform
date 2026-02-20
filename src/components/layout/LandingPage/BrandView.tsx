@@ -98,7 +98,7 @@ export default function BrandView() {
                             {/* Main Image Container */}
                             <div className="relative aspect-[4/3] shadow-2xl overflow-hidden group z-10 bg-slate-100">
                                 <Image
-                                    src="/images/Dealer image 2.png"
+                                    src="/images/Brand image 2.png"
                                     alt="Brand Visibility"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
