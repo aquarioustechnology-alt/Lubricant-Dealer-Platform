@@ -59,7 +59,7 @@ export default function BrandView() {
                                             <CheckCircle2 className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
+                                            <h4 className="font-medium text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
                                             <p className="text-slate-500 font-medium">{item.desc}</p>
                                         </div>
                                     </div>

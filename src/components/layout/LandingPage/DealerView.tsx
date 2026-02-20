@@ -59,7 +59,7 @@ export default function DealerView() {
                                             <CheckCircle2 className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
+                                            <h4 className="font-medium text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
                                             <p className="text-slate-500 font-medium">{item.desc}</p>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@ export default function DealerView() {
                     </div>
 
                     {/* Right Image Side - Staggered Grid */}
-                    <div className="flex-1 w-full max-w-md md:max-w-lg lg:max-w-[460px] xl:max-w-[560px] [@media(min-width:1600px)]:max-w-none mx-auto lg:mx-0">
+                    <div className="flex-1 w-full max-w-xl lg:max-w-none mx-auto lg:mx-0">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
