@@ -25,7 +25,7 @@ export default function DealerView() {
     const [loginOpen, setLoginOpen] = useState(false);
     return (
         <section id="dealer-benefits" className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
-            <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16">
+            <div className="max-w-7.5xl [@media(min-width:1600px)]:max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Content Side */}
                     <div className="flex-1 max-w-2xl">

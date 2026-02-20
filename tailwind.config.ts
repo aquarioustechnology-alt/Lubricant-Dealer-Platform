@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       maxWidth: {
         '7.5xl': '1440px',
+        '8xl': '1600px',
       },
       colors: {
         background: "var(--background)",

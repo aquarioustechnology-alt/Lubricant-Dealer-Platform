@@ -83,7 +83,7 @@ export default function Hero() {
 
                     {/* Content Container - Matching Header container */}
                     <div className="relative h-full flex items-center pt-16 lg:pt-20">
-                        <div className="max-w-7.5xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+                        <div className="max-w-7.5xl [@media(min-width:1600px)]:max-w-8xl mx-auto px-6 md:px-12 lg:px-16 w-full">
                             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
                                 <div className="max-w-4xl">
                                     {/* Trust Line */}
