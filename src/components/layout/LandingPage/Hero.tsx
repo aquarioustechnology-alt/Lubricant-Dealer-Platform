@@ -130,22 +130,22 @@ export default function Hero() {
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.8, duration: 0.8 }}
-                                        className="flex flex-wrap gap-4"
+                                        className="flex gap-4 w-full md:w-auto"
                                     >
                                         <button
                                             onClick={() => setSignUpOpen(true)}
-                                            className="btn-fill-secondary"
+                                            className="flex-1 md:flex-none btn-fill-secondary w-full md:w-auto justify-center"
                                         >
-                                            <span className="relative z-10 flex items-center gap-3 font-semibold">
-                                                Start Now <ArrowRight className="w-5 h-5" />
+                                            <span className="relative z-10 flex items-center justify-center gap-2 lg:gap-3 font-semibold text-[13px] sm:text-[14px]">
+                                                Start Now <ArrowRight className="w-4 h-4 hidden sm:block" />
                                             </span>
                                         </button>
 
                                         <button
                                             onClick={() => setLoginOpen(true)}
-                                            className="btn-outline-white"
+                                            className="flex-1 md:flex-none btn-outline-white w-full md:w-auto justify-center text-[13px] sm:text-[14px]"
                                         >
-                                            <span className="relative z-10 font-semibold">Portal Login</span>
+                                            <span className="relative z-10 font-semibold text-center w-full">Portal Login</span>
                                         </button>
                                     </motion.div>
                                 </div>

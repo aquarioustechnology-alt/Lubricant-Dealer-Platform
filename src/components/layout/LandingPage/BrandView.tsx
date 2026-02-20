@@ -67,17 +67,17 @@ export default function BrandView() {
                             </div>
 
                             {/* Buttons */}
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex gap-4 w-full md:w-auto">
                                 <button
                                     onClick={() => setLoginOpen(true)}
-                                    className="btn-fill-primary"
+                                    className="flex-1 md:flex-none btn-fill-primary w-full md:w-auto justify-center"
                                 >
-                                    <span className="relative z-10 flex items-center gap-3 font-semibold">
-                                        Brand Login <ArrowRight className="w-5 h-5" />
+                                    <span className="relative z-10 flex items-center justify-center gap-2 lg:gap-3 font-semibold text-[13px] sm:text-[14px]">
+                                        Brand Login <ArrowRight className="w-4 h-4 hidden sm:block" />
                                     </span>
                                 </button>
-                                <button className="btn-fill-secondary">
-                                    <span className="relative z-10 font-semibold">Talk to Us</span>
+                                <button className="flex-1 md:flex-none btn-fill-secondary w-full md:w-auto justify-center text-[13px] sm:text-[14px]">
+                                    <span className="relative z-10 font-semibold text-center w-full">Talk to Us</span>
                                 </button>
                             </div>
                         </motion.div>
