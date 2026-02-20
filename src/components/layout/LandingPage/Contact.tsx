@@ -91,7 +91,7 @@ export default function Contact() {
                         {/* The exact blue background mimicking the inspiration */}
                         {/* Uses negative margin to bleed to the edge. Gradients to create the top-left dark triangle. */}
                         <div
-                            className="absolute top-0 bottom-0 right-4 lg:right-12 z-0 w-[200vw] hidden md:block"
+                            className="absolute top-[-4rem] lg:top-[-6rem] bottom-0 right-6 lg:right-[108px] z-0 w-[200vw] hidden md:block"
                             style={{ background: "linear-gradient(145deg, #001D3D 0%, #001D3D 15%, #0066B2 15%, #0066B2 100%)" }}
                         />
 

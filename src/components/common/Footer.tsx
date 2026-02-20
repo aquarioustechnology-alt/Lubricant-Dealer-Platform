@@ -4,9 +4,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Phone, Mail, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LoginModal, SignUpModal } from "./AuthModals";
 
 export default function Footer() {
     const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [signUpOpen, setSignUpOpen] = useState(false);
 
     const toggleMenu = (title: string) => {
         setOpenMenu(openMenu === title ? null : title);
@@ -58,12 +61,12 @@ export default function Footer() {
 
                         {/* Login & Sign Up Buttons */}
                         <div className="flex gap-4 pt-2">
-                            <a href="#" className="btn-outline-white rounded-none">
+                            <button onClick={() => setLoginOpen(true)} className="btn-outline-white rounded-none">
                                 Login
-                            </a>
-                            <a href="#" className="btn-fill-secondary rounded-none">
+                            </button>
+                            <button onClick={() => setSignUpOpen(true)} className="btn-fill-secondary rounded-none">
                                 Sign Up
-                            </a>
+                            </button>
                         </div>
 
                         {/* Social Icons - Rectangular */}
@@ -156,6 +159,9 @@ export default function Footer() {
                         </p>
                     </div>
                 </div>
+
+                <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
+                <SignUpModal isOpen={signUpOpen} onClose={() => setSignUpOpen(false)} />
             </div>
         </footer>
     );
