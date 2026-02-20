@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Phone, Mail, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, smoothScrollTo } from "@/lib/utils";
 import { LoginModal, SignUpModal } from "./AuthModals";
 
 export default function Footer() {
@@ -105,7 +105,7 @@ export default function Footer() {
                                 <ul className="space-y-4">
                                     {group.links.map((link, j) => (
                                         <li key={j}>
-                                            <a href={link.href} className="text-white/80 hover:text-white text-[14px] font-medium transition-all flex items-center group relative w-fit">
+                                            <a href={link.href} onClick={smoothScrollTo} className="text-white/80 hover:text-white text-[14px] font-medium transition-all flex items-center group relative w-fit">
                                                 <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-2">
                                                     {link.name}
                                                 </span>

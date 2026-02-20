@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Globe } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, smoothScrollTo } from "@/lib/utils";
 
 import { LoginModal, SignUpModal } from "./AuthModals";
 
@@ -89,6 +89,7 @@ export default function Header() {
                             <a
                                 key={link.name}
                                 href={link.href}
+                                onClick={smoothScrollTo}
                                 className={cn(
                                     "text-[12px] font-semibold uppercase tracking-widest transition-colors",
                                     scrolled ? "text-[#000000] hover:text-primary" : "text-white/95 hover:text-white"
@@ -156,7 +157,7 @@ export default function Header() {
                                         key={link.name}
                                         href={link.href}
                                         className="text-sm font-semibold text-slate-900 uppercase tracking-widest hover:text-primary transition-colors"
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={(e) => { smoothScrollTo(e); setMobileMenuOpen(false); }}
                                     >
                                         {link.name}
                                     </a>
