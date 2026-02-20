@@ -90,7 +90,7 @@ export default function Features() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="flex flex-wrap justify-center gap-y-16 gap-x-10"
+                    className="flex flex-wrap justify-center gap-y-16 gap-x-6 [@media(min-width:1600px)]:gap-x-10"
                 >
                     {features.map((feature, index) => {
                         const isEven = index % 2 !== 0;
@@ -99,28 +99,28 @@ export default function Features() {
                             <motion.div
                                 key={index}
                                 variants={cardVariants}
-                                className="group relative flex flex-col items-center w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(20%-2rem)] xl:w-[calc(20%-2.5rem)] max-w-[280px] lg:max-w-none"
+                                className="group relative flex flex-col items-center w-full md:w-[calc(33.33%-1.5rem)] lg:w-[calc(20%-1.5rem)] [@media(min-width:1600px)]:w-[calc(20%-2.5rem)] max-w-none md:max-w-none"
                             >
                                 <div className={cn(
                                     "flex flex-col items-center w-full",
-                                    isEven ? "flex-col-reverse" : "flex-col"
+                                    isEven ? "lg:flex-col-reverse flex-col" : "flex-col"
                                 )}>
                                     {/* Card Body */}
                                     <div className={cn(
-                                        "bg-white p-6 xl:p-8 relative w-full transition-all duration-500 transform group-hover:-translate-y-3 group-hover:bg-primary z-10 min-h-[280px] flex flex-col justify-center",
+                                        "bg-white p-5 md:p-6 xl:p-8 relative w-full transition-all duration-500 transform group-hover:-translate-y-3 group-hover:bg-primary z-10 min-h-[280px] flex flex-col justify-center",
                                         "shadow-none border-[0.5px] border-primary/20 group-hover:border-primary",
-                                        !isEven ? "mb-8 text-center" : "mt-8 text-center"
+                                        !isEven ? "mb-8 text-center" : "mb-8 lg:mb-0 lg:mt-8 text-center"
                                     )}>
                                         {/* Notch */}
                                         <div className={cn(
                                             "absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-white border-primary/20 border-[0.5px] rotate-45 transition-all duration-500 group-hover:bg-primary group-hover:border-primary",
-                                            !isEven ? "-bottom-3 border-t-0 border-l-0" : "-top-3 border-b-0 border-r-0"
+                                            !isEven ? "-bottom-3 border-t-0 border-l-0" : "-bottom-3 border-t-0 border-l-0 lg:-top-3 lg:border-t lg:border-l lg:border-b-0 lg:border-r-0"
                                         )} />
 
                                         <div className="mb-5 flex justify-center">
                                             <feature.icon className="w-8 h-8 text-primary group-hover:text-white transition-all duration-500" strokeWidth={1.5} />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-slate-900 mb-3 group-hover:text-white transition-colors duration-500 leading-tight">
+                                        <h3 className="text-[17px] font-medium text-slate-900 mb-3 group-hover:text-white transition-colors duration-500 leading-tight">
                                             {feature.title}
                                         </h3>
                                         <p className="text-[13px] xl:text-[14px] leading-relaxed text-slate-500 font-medium group-hover:text-white/90 transition-colors duration-500">
