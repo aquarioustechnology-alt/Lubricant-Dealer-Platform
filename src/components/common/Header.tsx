@@ -26,7 +26,7 @@ export default function Header() {
         { name: "Brand Benefits", href: "#brand-benefits" },
         { name: "How It Works", href: "#how-it-works" },
         { name: "FAQ", href: "#faqs" },
-        { name: "Contact", href: "#" },
+        { name: "Contact", href: "#contact" },
     ];
 
     const scrollToTop = () => {
