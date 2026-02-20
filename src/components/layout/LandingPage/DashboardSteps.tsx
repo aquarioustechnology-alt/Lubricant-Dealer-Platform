@@ -724,7 +724,7 @@ export default function DashboardSteps() {
                                 PORTAL PREVIEW
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-[1.1] tracking-tight text-white max-w-4xl mx-auto">
+                        <h2 className="text-[28px] md:text-[36px] lg:text-[42px] xl:text-[46px] font-medium mb-6 leading-[1.1] tracking-tight text-white max-w-4xl mx-auto">
                             Screens That Match the Real Work – <br className="hidden md:block" />
                             Inventory, Assignments, Insights
                         </h2>

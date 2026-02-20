@@ -43,7 +43,7 @@ export default function DealerView() {
                                 </span>
                             </div>
 
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
+                            <h2 className="text-[28px] md:text-[36px] lg:text-[42px] xl:text-[46px] font-medium text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
                                 Made for Dealers Who Handle Multiple Brands Daily
                             </h2>
 
@@ -84,7 +84,7 @@ export default function DealerView() {
                     </div>
 
                     {/* Right Image Side - Staggered Grid */}
-                    <div className="flex-1 w-full max-w-xl lg:max-w-none">
+                    <div className="flex-1 w-full max-w-md md:max-w-lg lg:max-w-[460px] xl:max-w-[560px] [@media(min-width:1600px)]:max-w-none mx-auto lg:mx-0">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}

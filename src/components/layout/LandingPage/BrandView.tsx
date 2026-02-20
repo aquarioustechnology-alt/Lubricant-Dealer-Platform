@@ -43,8 +43,8 @@ export default function BrandView() {
                                 </span>
                             </div>
 
-                            <h2 className="text-3xl md:text-5xl font-bold text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
-                                Brands Get Visibility Without Micromanaging Dealers.
+                            <h2 className="text-[28px] md:text-[36px] lg:text-[42px] xl:text-[46px] font-medium text-[#001D3D] mb-6 leading-[1.1] tracking-tight">
+                                One Unified Hub for Complete Brand Performance
                             </h2>
 
                             <p className="text-slate-600 text-sm md:text-base mb-8 leading-relaxed font-normal">
