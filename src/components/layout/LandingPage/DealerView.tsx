@@ -26,7 +26,7 @@ export default function DealerView() {
     return (
         <section id="dealer-benefits" className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
             <div className="max-w-7.5xl [@media(min-width:1600px)]:max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
                     {/* Left Content Side */}
                     <div className="flex-1 max-w-2xl">
                         <motion.div
@@ -59,7 +59,7 @@ export default function DealerView() {
                                             <CheckCircle2 className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-medium text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
+                                            <h4 className="font-semibold text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
                                             <p className="text-slate-500 font-medium">{item.desc}</p>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@ export default function DealerView() {
                     </div>
 
                     {/* Right Image Side - Staggered Grid */}
-                    <div className="flex-1 w-full max-w-xl lg:max-w-none mx-auto lg:mx-0">
+                    <div className="flex-1 w-full max-w-none">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}

@@ -120,7 +120,7 @@ export default function Features() {
                                         <div className="mb-5 flex justify-center">
                                             <feature.icon className="w-8 h-8 text-primary group-hover:text-white transition-all duration-500" strokeWidth={1.5} />
                                         </div>
-                                        <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-white transition-colors duration-500 leading-tight">
+                                        <h3 className="text-lg font-semibold text-slate-900 mb-3 group-hover:text-white transition-colors duration-500 leading-tight">
                                             {feature.title}
                                         </h3>
                                         <p className="text-[13px] xl:text-[14px] leading-relaxed text-slate-500 font-medium group-hover:text-white/90 transition-colors duration-500">

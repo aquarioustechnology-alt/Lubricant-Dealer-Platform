@@ -26,7 +26,7 @@ export default function BrandView() {
     return (
         <section id="brand-benefits" className="py-[90px] lg:py-[106px] bg-white overflow-hidden">
             <div className="max-w-7.5xl [@media(min-width:1600px)]:max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
-                <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-32">
+                <div className="flex flex-col lg:flex-row-reverse items-start lg:items-center gap-16 lg:gap-32">
                     {/* Right Content Side */}
                     <div className="flex-1 max-w-2xl">
                         <motion.div
@@ -59,7 +59,7 @@ export default function BrandView() {
                                             <CheckCircle2 className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-medium text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
+                                            <h4 className="font-semibold text-lg text-slate-900 leading-tight mb-1">{item.title}</h4>
                                             <p className="text-slate-500 font-medium">{item.desc}</p>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@ export default function BrandView() {
                     </div>
 
                     {/* Left Image Side */}
-                    <div className="flex-1 w-full">
+                    <div className="flex-1 w-full max-w-none">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}

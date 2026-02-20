@@ -812,7 +812,7 @@ export default function DashboardSteps() {
 
                                             <div className="flex flex-col overflow-hidden">
                                                 <div className={cn(
-                                                    "text-sm font-bold uppercase tracking-wide leading-tight",
+                                                    "text-sm font-semibold uppercase tracking-wide leading-tight",
                                                     isActive ? "text-white" : "text-white/90"
                                                 )}>
                                                     {step.title}
