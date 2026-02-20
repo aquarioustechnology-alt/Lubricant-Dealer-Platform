@@ -7,6 +7,7 @@ import Features from "@/components/layout/LandingPage/Features";
 import BrandView from "@/components/layout/LandingPage/BrandView";
 import DashboardSteps from "@/components/layout/LandingPage/DashboardSteps";
 import FAQs from "@/components/layout/LandingPage/FAQs";
+import Contact from "@/components/layout/LandingPage/Contact";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <BrandView />
       <DashboardSteps />
       <FAQs />
+      <Contact />
       <Footer />
     </main>
   );

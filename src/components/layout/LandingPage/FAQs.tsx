@@ -122,7 +122,7 @@ export default function FAQs() {
                                         className="w-full px-8 py-5 flex items-center justify-between text-left group"
                                     >
                                         <span className={cn(
-                                            "text-lg font-bold tracking-tight transition-colors duration-300 pr-8",
+                                            "text-lg font-medium tracking-tight transition-colors duration-300 pr-8",
                                             isOpen ? "text-primary" : "text-slate-900 group-hover:text-primary"
                                         )}>
                                             {faq.question}

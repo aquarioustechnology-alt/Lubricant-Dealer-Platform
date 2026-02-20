@@ -131,7 +131,7 @@ export default function BrandView() {
                                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                                         </svg>
                                     </div>
-                                    <h4 className="text-lg md:text-xl font-bold leading-tight uppercase tracking-wide">
+                                    <h4 className="text-lg md:text-xl font-medium leading-tight uppercase tracking-wide">
                                         Verified Network Visibility
                                     </h4>
                                     <div className="w-10 h-1 bg-white/40 mt-4" />
