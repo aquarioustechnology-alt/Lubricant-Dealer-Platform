@@ -95,7 +95,7 @@ export default function DealerView() {
                             {/* Left Image (Lower) */}
                             <div className="relative aspect-[3/4] self-end mt-16 md:mt-24 shadow-2xl overflow-hidden group">
                                 <Image
-                                    src="/images/hero-image-1.png"
+                                    src="/images/Dealer Image 1 1.png"
                                     alt="Dealer Operations"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -105,7 +105,7 @@ export default function DealerView() {
                             {/* Right Image (Higher) */}
                             <div className="relative aspect-[3/4] shadow-2xl overflow-hidden group">
                                 <Image
-                                    src="/images/hero-image-3.png"
+                                    src="/images/Dealer image 3.png"
                                     alt="Detail view"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
