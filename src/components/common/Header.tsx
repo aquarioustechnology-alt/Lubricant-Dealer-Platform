@@ -37,7 +37,7 @@ export default function Header() {
         <header className="fixed top-0 inset-x-0 z-50">
             {/* Top Bar - Brand Blue Background */}
             <div className={cn(
-                "hidden lg:block bg-primary text-white py-2 px-6 transition-all duration-300",
+                "hidden xl:block bg-primary text-white py-2 px-6 transition-all duration-300",
                 scrolled ? "h-0 opacity-0 overflow-hidden py-0" : "h-auto opacity-100"
             )}>
                 <div className="max-w-7.5xl [@media(min-width:1600px)]:max-w-8xl mx-auto px-6 md:px-12 lg:px-16 flex justify-between items-center text-[11px] font-semibold tracking-widest">
@@ -67,7 +67,7 @@ export default function Header() {
             {/* Main Nav */}
             <nav
                 className={cn(
-                    "transition-all duration-300 px-6 py-4",
+                    "transition-all duration-300 py-4",
                     scrolled ? "bg-white shadow-md py-3" : "bg-transparent"
                 )}
             >
@@ -84,7 +84,7 @@ export default function Header() {
                     </div>
 
                     {/* Desktop Links */}
-                    <div className="hidden lg:flex items-center gap-7">
+                    <div className="hidden xl:flex items-center gap-7">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
@@ -132,7 +132,7 @@ export default function Header() {
                     {/* Mobile Toggle */}
                     <button
                         className={cn(
-                            "lg:hidden p-2",
+                            "xl:hidden p-2 -mr-2",
                             scrolled ? "text-slate-900" : "text-white"
                         )}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -148,7 +148,7 @@ export default function Header() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="lg:hidden bg-white border-b overflow-hidden shadow-2xl rounded-b-2xl absolute top-full left-0 right-0"
+                            className="xl:hidden bg-white border-b overflow-hidden shadow-2xl rounded-b-2xl absolute top-full left-0 right-0"
                         >
                             <div className="flex flex-col p-8 gap-5">
                                 {navLinks.map((link) => (

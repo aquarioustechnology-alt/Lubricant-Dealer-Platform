@@ -50,7 +50,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="hero" className="relative min-h-[600px] h-[90vh] lg:h-[90vh] w-full overflow-hidden bg-slate-900 border-b border-slate-100/10">
+        <section id="hero" className="relative min-h-[480px] h-[75vh] md:min-h-[500px] md:h-[75vh] lg:min-h-[600px] lg:h-[90vh] w-full overflow-hidden bg-slate-900 border-b border-slate-100/10">
             {/* Subtle top gradient for header visibility */}
             <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/60 to-transparent z-20 pointer-events-none" />
 
